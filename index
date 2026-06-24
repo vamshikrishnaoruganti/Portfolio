@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Vamshi Oruganti — Mechatronics Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --bg: #0d0f12;
+  --bg2: #13161a;
+  --bg3: #1a1e24;
+  --border: rgba(255,255,255,0.07);
+  --border2: rgba(255,255,255,0.13);
+  --text: #e8eaed;
+  --text2: #8a9ab0;
+  --text3: #556070;
+  --accent: #3b82f6;
+  --accent2: #1d4ed8;
+  --teal: #14b8a6;
+  --coral: #f97316;
+  --purple: #a78bfa;
+  --green: #22c55e;
+  --amber: #f59e0b;
+  --font-head: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --r: 12px;
+  --r-sm: 8px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--text); font-family: var(--font-body); font-size: 15px; line-height: 1.6; }
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(13,15,18,0.88); backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 2rem; height: 56px;
+}
+.nav-logo { font-family: var(--font-head); font-size: 16px; font-weight: 600; color: var(--text); letter-spacing: -0.3px; }
+.nav-logo span { color: var(--accent); }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a { text-decoration: none; color: var(--text2); font-size: 13px; font-weight: 500; letter-spacing: 0.02em; transition: color 0.2s; }
+.nav-links a:hover { color: var(--text); }
+.nav-cta { background: var(--accent); color: #fff; font-size: 13px; font-weight: 500; padding: 7px 16px; border-radius: var(--r-sm); text-decoration: none; transition: background 0.2s; }
+.nav-cta:hover { background: var(--accent2); }
+
+/* HERO */
+.hero {
+  min-height: 100vh; display: flex; align-items: center;
+  padding: 5rem 2rem 3rem; max-width: 1100px; margin: 0 auto;
+  position: relative;
+}
+.hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; width: 100%; }
+.hero-eyebrow { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); font-weight: 500; margin-bottom: 1rem; }
+.hero-name { font-family: var(--font-head); font-size: clamp(36px, 5vw, 60px); font-weight: 700; line-height: 1.05; letter-spacing: -1.5px; color: var(--text); }
+.hero-name span { color: var(--accent); }
+.hero-sub { font-size: 17px; color: var(--text2); margin-top: 1.25rem; line-height: 1.7; }
+.hero-stats { display: flex; gap: 2rem; margin-top: 2rem; flex-wrap: wrap; }
+.stat { }
+.stat-num { font-family: var(--font-head); font-size: 28px; font-weight: 700; color: var(--text); }
+.stat-label { font-size: 12px; color: var(--text3); margin-top: 1px; }
+.hero-ctas { display: flex; gap: 12px; margin-top: 2.5rem; flex-wrap: wrap; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: var(--r-sm); font-size: 14px; font-weight: 500; text-decoration: none; transition: all 0.2s; }
+.btn-primary { background: var(--accent); color: #fff; }
+.btn-primary:hover { background: var(--accent2); }
+.btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border2); }
+.btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+.hero-card {
+  background: var(--bg2); border: 1px solid var(--border); border-radius: 20px;
+  padding: 2rem; position: relative; overflow: hidden;
+}
+.hero-card::before {
+  content: ''; position: absolute; top: -60px; right: -60px;
+  width: 200px; height: 200px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(59,130,246,0.15) 0%, transparent 70%);
+}
+.avatar-circle {
+  width: 80px; height: 80px; border-radius: 50%;
+  background: linear-gradient(135deg, #1d4ed8, #7c3aed);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-head); font-size: 26px; font-weight: 700; color: #fff;
+  margin-bottom: 1.25rem;
+}
+.hcard-name { font-family: var(--font-head); font-size: 20px; font-weight: 600; }
+.hcard-role { font-size: 13px; color: var(--text2); margin-top: 3px; }
+.hcard-info { margin-top: 1.25rem; display: flex; flex-direction: column; gap: 10px; }
+.hcard-row { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--text2); }
+.hcard-row svg { width: 15px; height: 15px; opacity: 0.5; flex-shrink: 0; }
+.chip-row { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 1.25rem; }
+.chip { font-size: 11px; padding: 4px 10px; border-radius: 100px; font-weight: 500; }
+.chip-blue { background: rgba(59,130,246,0.15); color: #93c5fd; }
+.chip-teal { background: rgba(20,184,166,0.12); color: #5eead4; }
+.chip-coral { background: rgba(249,115,22,0.12); color: #fdba74; }
+.chip-purple { background: rgba(167,139,250,0.12); color: #c4b5fd; }
+
+/* SECTIONS */
+.section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
+.section-header { margin-bottom: 2.5rem; }
+.section-eyebrow { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); font-weight: 500; margin-bottom: 8px; }
+.section-title { font-family: var(--font-head); font-size: 32px; font-weight: 700; letter-spacing: -0.5px; }
+.section-title span { color: var(--text2); font-weight: 400; }
+
+/* TIMELINE */
+.tl { position: relative; padding-left: 28px; }
+.tl::before { content: ''; position: absolute; left: 7px; top: 10px; bottom: 0; width: 1px; background: var(--border); }
+.tl-item { position: relative; margin-bottom: 2.5rem; }
+.tl-dot { position: absolute; left: -28px; top: 6px; width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--bg); }
+.tl-inner { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--r); padding: 1.25rem 1.5rem; }
+.tl-role { font-family: var(--font-head); font-size: 17px; font-weight: 600; }
+.tl-company { font-size: 14px; color: var(--accent); margin-top: 3px; }
+.tl-period { font-size: 12px; color: var(--text3); margin-top: 3px; }
+.tl-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 12px; }
+.tl-tag { font-size: 11px; padding: 3px 9px; border-radius: 100px; background: var(--bg3); color: var(--text2); border: 1px solid var(--border); }
+.tl-bullets { margin-top: 12px; padding-left: 16px; display: flex; flex-direction: column; gap: 5px; }
+.tl-bullets li { font-size: 13px; color: var(--text2); }
+
+/* PROJECTS GRID */
+.proj-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
+.proj-card {
+  background: var(--bg2); border: 1px solid var(--border); border-radius: var(--r);
+  overflow: hidden; transition: border-color 0.2s, transform 0.2s;
+  display: flex; flex-direction: column;
+}
+.proj-card:hover { border-color: var(--border2); transform: translateY(-2px); }
+.proj-img-box {
+  width: 100%; height: 180px; background: var(--bg3);
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column; gap: 8px; position: relative;
+  border-bottom: 1px solid var(--border); overflow: hidden;
+}
+.proj-img-box img { width: 100%; height: 100%; object-fit: cover; }
+.proj-img-box.empty svg { opacity: 0.18; width: 48px; height: 48px; }
+.proj-img-placeholder { font-size: 12px; color: var(--text3); text-align: center; }
+.img-link-btn {
+  position: absolute; bottom: 8px; right: 8px;
+  background: rgba(13,15,18,0.85); border: 1px solid var(--border2);
+  border-radius: var(--r-sm); padding: 4px 10px; font-size: 11px; color: var(--text2);
+  text-decoration: none; display: flex; align-items: center; gap: 5px;
+  transition: color 0.2s, border-color 0.2s;
+}
+.img-link-btn:hover { color: var(--accent); border-color: var(--accent); }
+.proj-body { padding: 1.25rem; flex: 1; display: flex; flex-direction: column; }
+.proj-phase { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text3); margin-bottom: 6px; }
+.proj-name { font-family: var(--font-head); font-size: 16px; font-weight: 600; }
+.proj-company { font-size: 12px; color: var(--text3); margin-top: 3px; }
+.proj-desc { font-size: 13px; color: var(--text2); margin-top: 10px; line-height: 1.6; flex: 1; }
+.proj-tags { display: flex; gap: 5px; flex-wrap: wrap; margin-top: 12px; }
+.proj-tag { font-size: 10px; padding: 3px 8px; border-radius: 100px; background: var(--bg3); color: var(--text2); border: 1px solid var(--border); }
+.proj-links { display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap; }
+.proj-link {
+  font-size: 12px; color: var(--text2); text-decoration: none;
+  display: inline-flex; align-items: center; gap: 5px;
+  border: 1px solid var(--border); border-radius: var(--r-sm);
+  padding: 5px 10px; transition: all 0.2s; background: var(--bg3);
+}
+.proj-link:hover { color: var(--accent); border-color: var(--accent); }
+.proj-link svg { width: 13px; height: 13px; }
+
+/* SKILLS */
+.skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
+.skill-card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--r); padding: 1.25rem; }
+.skill-card-label { font-size: 12px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+.skill-card-label svg { width: 16px; height: 16px; }
+.skill-list { display: flex; flex-direction: column; gap: 5px; }
+.skill-item { font-size: 13px; color: var(--text2); padding: 4px 0; border-bottom: 1px solid var(--border); }
+.skill-item:last-child { border-bottom: none; }
+
+/* DOCS */
+.docs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+.doc-card {
+  background: var(--bg2); border: 1px solid var(--border); border-radius: var(--r);
+  padding: 1.25rem; display: flex; align-items: flex-start; gap: 14px;
+  text-decoration: none; color: var(--text); transition: border-color 0.2s;
+}
+.doc-card:hover { border-color: var(--accent); }
+.doc-icon { width: 40px; height: 40px; border-radius: var(--r-sm); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.doc-icon svg { width: 20px; height: 20px; }
+.doc-title { font-size: 14px; font-weight: 500; }
+.doc-desc { font-size: 12px; color: var(--text3); margin-top: 3px; }
+.doc-tag { font-size: 11px; color: var(--accent); margin-top: 8px; display: flex; align-items: center; gap: 4px; }
+.doc-tag svg { width: 12px; height: 12px; }
+
+/* CONTACT */
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+.contact-info { display: flex; flex-direction: column; gap: 14px; }
+.contact-row { display: flex; align-items: center; gap: 12px; font-size: 14px; color: var(--text2); }
+.contact-row svg { width: 16px; height: 16px; color: var(--accent); flex-shrink: 0; }
+.contact-row a { color: var(--accent); text-decoration: none; }
+.contact-row a:hover { text-decoration: underline; }
+.contact-message { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--r); padding: 1.5rem; }
+.contact-message p { font-size: 14px; color: var(--text2); line-height: 1.75; }
+
+/* FOOTER */
+footer { border-top: 1px solid var(--border); padding: 2rem; text-align: center; font-size: 12px; color: var(--text3); }
+
+/* DIVIDERS */
+.full-divider { height: 1px; background: var(--border); }
+
+/* COLOR ACCENTS */
+.dot-blue { background: var(--accent); }
+.dot-green { background: var(--green); }
+.dot-amber { background: var(--amber); }
+.dot-coral { background: var(--coral); }
+.dot-gray { background: var(--text3); }
+.dot-purple { background: var(--purple); }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; }
+  nav .nav-links { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Vamshi <span>Oruganti</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#docs">Documents</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="tel:+918688643286" class="nav-cta">📞 Hire Me</a>
+</nav>
+
+<!-- HERO -->
+<div id="about" style="max-width:1100px; margin:0 auto; padding:0 2rem;">
+  <div class="hero">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-eyebrow">Mechatronics Engineer</div>
+        <h1 class="hero-name">Vamshi<br /><span>Oruganti</span></h1>
+        <p class="hero-sub">Building intelligent systems at the intersection of embedded firmware, medical devices, and industrial automation — from PIC microcontrollers to CPAP therapy algorithms.</p>
+        <div class="hero-stats">
+          <div class="stat">
+            <div class="stat-num">5.6+</div>
+            <div class="stat-label">Years Experience</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">15+</div>
+            <div class="stat-label">Projects Delivered</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">4</div>
+            <div class="stat-label">Industry Domains</div>
+          </div>
+        </div>
+        <div class="hero-ctas">
+          <a href="#projects" class="btn btn-primary">View Projects</a>
+          <a href="#docs" class="btn btn-outline">Download CV</a>
+          <a href="#contact" class="btn btn-outline">Contact</a>
+        </div>
+      </div>
+      <div>
+        <div class="hero-card">
+          <div class="avatar-circle">VO</div>
+          <div class="hcard-name">Vamshi Oruganti</div>
+          <div class="hcard-role">Embedded Engineer — Avantel (Current)</div>
+          <div class="hcard-info">
+            <div class="hcard-row">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Warangal, Telangana, India
+            </div>
+            <div class="hcard-row">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.15 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.06 1.2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 9.11a16 16 0 0 0 5.61 5.61l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.95 15a2 2 0 0 1 .02.92z"/></svg>
+              +91 86886 43286
+            </div>
+            <div class="hcard-row">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              Available for opportunities
+            </div>
+            <div class="hcard-row">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+              MGIT Hyderabad · CITD Mechatronics
+            </div>
+          </div>
+          <div class="chip-row">
+            <span class="chip chip-blue">CPAP/BiPAP</span>
+            <span class="chip chip-teal">PLC / HMI</span>
+            <span class="chip chip-coral">Embedded C</span>
+            <span class="chip chip-purple">IoT / Cloud</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="full-divider"></div>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="section">
+  <div class="section-header">
+    <div class="section-eyebrow">Work History</div>
+    <h2 class="section-title">Experience <span>Timeline</span></h2>
+  </div>
+  <div class="tl">
+
+    <div class="tl-item">
+      <div class="tl-dot dot-blue"></div>
+      <div class="tl-inner">
+        <div class="tl-role">Embedded Engineer — Design &amp; Development</div>
+        <div class="tl-company">Avantel · Visakhapatnam / Hyderabad</div>
+        <div class="tl-period">August 2023 – Present</div>
+        <ul class="tl-bullets">
+          <li>Firmware/Embedded Team Lead for CPAP, BiPAP, and HFNC medical device development.</li>
+          <li>Led end-to-end product development from prototype to production under ISO 80601-2-70 and IEC 62304.</li>
+          <li>Designed therapy algorithms: CPAP, Auto CPAP, APAP, BiPAP-S/T/ST, HFNC.</li>
+          <li>Built snoring &amp; flow restriction simulators saving the company 12+ lakhs in testing costs.</li>
+          <li>Implemented OTA firmware updates, Wi-Fi connectivity, SD card therapy logging, and GUI displays.</li>
+        </ul>
+        <div class="tl-tags">
+          <span class="tl-tag">PIC18F/24F/32</span><span class="tl-tag">MPLAB X</span>
+          <span class="tl-tag">ISO 80601-2-70</span><span class="tl-tag">IEC 62304</span>
+          <span class="tl-tag">UART/I2C/SPI/SDHC</span><span class="tl-tag">OTA</span>
+          <span class="tl-tag">Wi-Fi/Cloud</span><span class="tl-tag">Fuzzy/PID</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot dot-purple"></div>
+      <div class="tl-inner">
+        <div class="tl-role">Mechatronics Engineer</div>
+        <div class="tl-company">HS Motion · Punjab</div>
+        <div class="tl-period">2023 (Short Tenure)</div>
+        <ul class="tl-bullets">
+          <li>Technical documentation for automatic sorter projects.</li>
+          <li>Designed circuit sketches and identified AMR hardware parts suppliers.</li>
+        </ul>
+        <div class="tl-tags">
+          <span class="tl-tag">AMR</span><span class="tl-tag">Circuit Design</span><span class="tl-tag">Technical Docs</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot dot-green"></div>
+      <div class="tl-inner">
+        <div class="tl-role">Senior Engineer EME — Development Division</div>
+        <div class="tl-company">HBL Power Systems Ltd · Shamirpet, Telangana</div>
+        <div class="tl-period">September 2021 – April 2023</div>
+        <ul class="tl-bullets">
+          <li>Led Industry 4.0 initiatives across departments — IoT, data analytics, smart factory.</li>
+          <li>Designed PLC/HMI programs for 8+ industrial automation projects end-to-end.</li>
+          <li>Motion control using Servo, Stepper, DC, BLDC motors and VFDs.</li>
+          <li>Developed cloud RH monitoring solution saving 6.7 lakhs vs external supplier quote.</li>
+          <li>Computer vision with Jetson Nano to detect and fill 0.6 mm holes with high accuracy.</li>
+        </ul>
+        <div class="tl-tags">
+          <span class="tl-tag">PLC (IEC 61131)</span><span class="tl-tag">HMI GT Designer</span>
+          <span class="tl-tag">Servo/Stepper/VFD</span><span class="tl-tag">ESP32-S2</span>
+          <span class="tl-tag">Jetson Nano</span><span class="tl-tag">SolidWorks</span>
+          <span class="tl-tag">Pneumatics</span><span class="tl-tag">3D Printing</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot dot-amber"></div>
+      <div class="tl-inner">
+        <div class="tl-role">Graduate Engineering Trainee</div>
+        <div class="tl-company">VSRMKP Technologies Pvt Ltd · Hyderabad</div>
+        <div class="tl-period">January 2021 – June 2021</div>
+        <ul class="tl-bullets">
+          <li>Designed and built a Li-ion battery pack powered E-Bike with BLDC hub motor.</li>
+          <li>Developed BMS software: over/under voltage protection, current &amp; temperature monitoring.</li>
+          <li>MATLAB simulations for speed control, SOC, and energy optimization.</li>
+        </ul>
+        <div class="tl-tags">
+          <span class="tl-tag">BLDC</span><span class="tl-tag">Li-ion BMS</span>
+          <span class="tl-tag">ESP32</span><span class="tl-tag">MATLAB</span><span class="tl-tag">Embedded C</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot dot-gray"></div>
+      <div class="tl-inner">
+        <div class="tl-role">Technical Assistant (JNTUH Sponsored Project)</div>
+        <div class="tl-company">Mahatma Gandhi Institute of Technology · Hyderabad</div>
+        <div class="tl-period">November 2019 – April 2020</div>
+        <ul class="tl-bullets">
+          <li>Designed and fabricated an Automatic TIG Welding system using mechatronics principles.</li>
+          <li>Maintained constant linear momentum during TIG welding for uniform weld quality.</li>
+          <li>Project sponsored by JNTUH under ref: JNTUH/TEQIP-III/CRS/2019/MECH/06.</li>
+        </ul>
+        <div class="tl-tags">
+          <span class="tl-tag">DC/Servo Motors</span><span class="tl-tag">Encoders</span>
+          <span class="tl-tag">I2C/SPI</span><span class="tl-tag">Embedded C</span><span class="tl-tag">Closed Loop</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="full-divider"></div>
+
+<!-- PROJECTS -->
+<section id="projects" class="section">
+  <div class="section-header">
+    <div class="section-eyebrow">Portfolio</div>
+    <h2 class="section-title">Projects — <span>Click image boxes to add your photos</span></h2>
+  </div>
+  <div class="proj-grid">
+
+    <!-- P1 -->
+    <div class="proj-card">
+      <div class="proj-img-box empty" id="img-cpap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        <div class="proj-img-placeholder">Add image · CPAP/BiPAP Device</div>
+        <a href="#" class="img-link-btn" onclick="openImageLink('cpap'); return false;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          Link image
+        </a>
+      </div>
+      <div class="proj-body">
+        <div class="proj-phase">Avantel · 2023–Present</div>
+        <div class="proj-name">CPAP / BiPAP / HFNC Medical Device</div>
+        <div class="proj-desc">Firmware team lead for full medical-grade respiratory therapy device. Developed therapy modes (CPAP, Auto CPAP, APAP, BiPAP-S/T/ST, HFNC), blower control algorithms, patient safety monitoring, and Wi-Fi cloud connectivity.</div>
+        <div class="proj-tags">
+          <span class="proj-tag">PIC32</span><span class="proj-tag">ISO 80601-2-70</span>
+          <span class="proj-tag">IEC 62304</span><span class="proj-tag">Therapy Algorithms</span>
+          <span class="proj-tag">OTA</span><span class="proj-tag">Fuzzy/PID</span>
+        </div>
+        <div class="proj-links">
+          <a href="#" class="proj-link" onclick="openDocLink('cpap-doc'); return false;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Add Document
+          </a>
+          <a href="#" class="proj-link" onclick="openDocLink('cpap-img'); return false;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            Add Image Link
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- P2 -->
+    <div class="proj-card">
+      <div class="proj-img-box empty">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 19.07a10 10 0 0 1 0-14.14"/></svg>
+        <div class="proj-img-placeholder">Add image · Electro-Polishing</div>
+        <a href="#" class="img-link-btn" onclick="openImageLink('elec'); return false;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          Link image
+        </a>
+      </div>
+      <div class="proj-body">
+        <div class="proj-phase">HBL Power Systems · 2021–2023</div>
+        <div class="proj-name">Electro-Polishing Control System</div>
+        <div class="proj-desc">Designed and developed a relay-based control circuit with safety interlocks. Integrated with existing battery charger infrastructure. Full BOM and component selection.</div>
+        <div class="proj-tags"><span class="proj-tag">Relay Circuits</span><span class="proj-tag">Safety Interlock</span><span class="proj-tag">BOM</span></div>
+        <div class="proj-links">
+          <a href="#" class="proj-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Add Document
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- P3 -->
+    <div class="proj-card">
+      <div class="proj-img-box empty">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        <div class="proj-img-placeholder">Add image · Ampoule Machine</div>
+        <a href="#" class="img-link-btn" onclick="openImageLink('amp'); return false;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          Link image
+        </a>
+      </div>
+      <div class="proj-body">
+        <div class="proj-phase">HBL Power Systems · 2021–2023</div>
+        <div class="proj-name">Ampoule Making Machine</div>
+        <div class="proj-desc">Implemented HMI and PLC integration with DC motors, burners, and pneumatic cylinders. Fine-tuned to produce different ampoule sizes. Full sensor integration and mechanical assembly.</div>
+        <div class="proj-tags"><span class="proj-tag">PLC</span><span class="proj-tag">HMI</span><span class="proj-tag">Pneumatics</span><span class="proj-tag">DC Motors</span></div>
+        <div class="proj-links">
+          <a href="#" class="proj-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Add Document</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- P4 -->
+    <div class="proj-card">
+      <div class="proj-img-box empty">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M3 15a4 4 0 0 0 4 4h9a5 5 0 1 0-.1-9.999 5.002 5.002 0 0 0-9.78 2.096A4.001 4.001 0 0 0 3 15z"/></svg>
+        <div class="proj-img-placeholder">Add image · IIoT RH Monitor</div>
+        <a href="#" class="img-link-btn" onclick="openImageLink('iot'); return false;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          Link image
+        </a>
+      </div>
+      <div class="proj-body">
+        <div class="proj-phase">HBL Power Systems · 2021–2023</div>
+        <div class="proj-name">RH Monitoring &amp; Alarm (IIoT)</div>
+        <div class="proj-desc">Cloud-based humidity monitor with user access control and alarms for glove boxes. Built for ~80K budget vs supplier quote of 7.5 Lakhs — saving 6.7 Lakhs. Used ESP32 and Arduino Pro.</div>
+        <div class="proj-tags"><span class="proj-tag">ESP32-S2</span><span class="proj-tag">Cloud</span><span class="proj-tag">IIoT</span><span class="proj-tag">Sensors</span></div>
+        <div class="proj-links">
+          <a href="#" class="proj-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Add Document</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- P5 -->
+    <div class="proj-card">
+      <div class="proj-img-box empty">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        <div class="proj-img-placeholder">Add image · Electrode Shearing</div>
+        <a href="#" class="img-link-btn" onclick="openImageLink('shear'); return false;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          Link image
+        </a>
+      </div>
+      <div class="proj-body">
+        <div class="proj-phase">HBL Power Systems · 2021–2023</div>
+        <div class="proj-name">Electrode Shearing Online System</div>
+        <div class="proj-desc">Auto-activating cylinder system to shear electrodes to required width, integrated with existing coating machine. Involved encoder calculations and pulse counter design.</div>
+        <div class="proj-tags"><span class="proj-tag">Encoders</span><span class="proj-tag">PLC</span><span class="proj-tag">Pneumatics</span><span class="proj-tag">BOM</span></div>
+        <div class="proj-links">
+          <a href="#" class="proj-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Add Document</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- P6 -->
+    <div class="proj-card">
+      <div class="proj-img-box empty">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M20 7H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        <div class="proj-img-placeholder">Add image · Tank Level Control</div>
+        <a href="#" class="img-link-btn" onclick="openImageLink('tank'); return false;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          Link image
+        </a>
+      </div>
+      <div class="proj-body">
+        <div class="proj-phase">HBL Power Systems · 2021–2023</div>
+        <div class="proj-name">Tank Level Control System</div>
+        <div class="proj-desc">HMI and PLC based system maintaining electrolyte solution levels in line tanks by circulating from a central tank. Full component selection and BOM management.</div>
+        <div class="proj-tags"><span class="proj-tag">HMI</span><span class="proj-tag">PLC</span><span class="proj-tag">Level Sensors</span></div>
+        <div class="proj-links">
+          <a href="#" class="proj-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Add Document</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- P7 -->
+    <div class="proj-card">
+      <div class="proj-img-box empty">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+        <div class="proj-img-placeholder">Add image · Filling Machine</div>
+        <a href="#" class="img-link-btn" onclick="openImageLink('fill'); return false;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          Link image
+        </a>
+      </div>
+      <div class="proj-body">
+        <div class="proj-phase">HBL Power Systems · 2021–2023</div>
+        <div class="proj-name">Electrolyte Filling Machine</div>
+        <div class="proj-desc">HMI/PLC system pumping electrolyte to precise milliliter setpoints using a stepper motor with ceramic pump. Load cell integration ensures setpoint accuracy.</div>
+        <div class="proj-tags"><span class="proj-tag">Stepper Motor</span><span class="proj-tag">Load Cell</span><span class="proj-tag">HMI</span><span class="proj-tag">PLC</span></div>
+        <div class="proj-links">
+          <a href="#" class="proj-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Add Document</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- P8 -->
+    <div class="proj-card">
+      <div class="proj-img-box empty">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 0 0 6.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 0 0 6.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"/></svg>
+        <div class="proj-img-placeholder">Add image · Weight Sorting</div>
+        <a href="#" class="img-link-btn" onclick="openImageLink('weight'); return false;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          Link image
+        </a>
+      </div>
+      <div class="proj-body">
+        <div class="proj-phase">HBL Power Systems · 2021–2023</div>
+        <div class="proj-name">Weight Sorting System</div>
+        <div class="proj-desc">HMI and PLC based system sorting battery plates by weight. Servo motor configuration and integration, mechanical design and development from scratch.</div>
+        <div class="proj-tags"><span class="proj-tag">Servo Motor</span><span class="proj-tag">PLC</span><span class="proj-tag">HMI</span><span class="proj-tag">Mechanical Design</span></div>
+        <div class="proj-links">
+          <a href="#" class="proj-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Add Document</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- P9 -->
+    <div class="proj-card">
+      <div class="proj-img-box empty">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 2v4m0 12v4M4.22 4.22l2.83 2.83m9.9 9.9 2.83 2.83M2 12h4m12 0h4M4.22 19.78l2.83-2.83m9.9-9.9 2.83-2.83"/></svg>
+        <div class="proj-img-placeholder">Add image · Ampoule Filling Vision</div>
+        <a href="#" class="img-link-btn" onclick="openImageLink('vision'); return false;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          Link image
+        </a>
+      </div>
+      <div class="proj-body">
+        <div class="proj-phase">HBL Power Systems · 2021–2023</div>
+        <div class="proj-name">Ampoule Filling — Computer Vision</div>
+        <div class="proj-desc">Developed algorithm to detect center of ampoule neck hole (0.5mm ±0.1mm accuracy) using Jetson Nano. Designed motion control system and full mechanical integration.</div>
+        <div class="proj-tags"><span class="proj-tag">Jetson Nano</span><span class="proj-tag">Python CV</span><span class="proj-tag">Motion Control</span><span class="proj-tag">0.5mm acc.</span></div>
+        <div class="proj-links">
+          <a href="#" class="proj-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Add Document</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- P10 -->
+    <div class="proj-card">
+      <div class="proj-img-box empty">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="13 2 13 9 20 9"/></svg>
+        <div class="proj-img-placeholder">Add image · E-Bike / BMS</div>
+        <a href="#" class="img-link-btn" onclick="openImageLink('ebike'); return false;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          Link image
+        </a>
+      </div>
+      <div class="proj-body">
+        <div class="proj-phase">VSRMKP Technologies · 2021</div>
+        <div class="proj-name">E-Bike with Li-ion BMS</div>
+        <div class="proj-desc">Designed Li-ion battery pack and built E-bike prototype with BLDC hub motor. Developed BMS firmware for over/under voltage, current, reverse polarity &amp; temperature protection. MATLAB simulations for energy optimization.</div>
+        <div class="proj-tags"><span class="proj-tag">BLDC Hub Motor</span><span class="proj-tag">Li-ion BMS</span><span class="proj-tag">ESP32</span><span class="proj-tag">MATLAB</span><span class="proj-tag">Embedded C</span></div>
+        <div class="proj-links">
+          <a href="#" class="proj-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Add Document</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- P11 -->
+    <div class="proj-card">
+      <div class="proj-img-box empty">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        <div class="proj-img-placeholder">Add image · Auto TIG Welding</div>
+        <a href="#" class="img-link-btn" onclick="openImageLink('tig'); return false;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          Link image
+        </a>
+      </div>
+      <div class="proj-body">
+        <div class="proj-phase">MGIT / JNTUH Sponsored · 2019–2020</div>
+        <div class="proj-name">Automatic TIG Welding System</div>
+        <div class="proj-desc">Mechatronics-based automatic TIG welding with constant linear momentum control. Integrated DC gear motors, servo motors, encoders, I2C/SPI sensors, and a custom display interface. Sponsored by JNTUH/TEQIP-III.</div>
+        <div class="proj-tags"><span class="proj-tag">Servo/DC Motors</span><span class="proj-tag">Encoders</span><span class="proj-tag">I2C/SPI</span><span class="proj-tag">Closed Loop</span><span class="proj-tag">JNTUH Sponsored</span></div>
+        <div class="proj-links">
+          <a href="#" class="proj-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Add Document</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- P12 -->
+    <div class="proj-card">
+      <div class="proj-img-box empty">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/><path d="M12 8v4l3 3"/></svg>
+        <div class="proj-img-placeholder">Add image · B.Tech Projects</div>
+        <a href="#" class="img-link-btn" onclick="openImageLink('btech'); return false;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          Link image
+        </a>
+      </div>
+      <div class="proj-body">
+        <div class="proj-phase">B.Tech / MCCM · 2016–2020</div>
+        <div class="proj-name">Agriculture Robot / AGV / Robo Boat</div>
+        <div class="proj-desc">Multiple academic mechatronics projects including Agriculture Robot, Robo Boat, Advanced Multipurpose Robo Boat, AGV with Fuzzy Logic, IoT Bus Tracking, Automatic Gear Shifting, Pneumatic &amp; Hydraulic systems.</div>
+        <div class="proj-tags"><span class="proj-tag">IoT</span><span class="proj-tag">Fuzzy Logic</span><span class="proj-tag">PLC</span><span class="proj-tag">Pneumatics</span><span class="proj-tag">Python</span></div>
+        <div class="proj-links">
+          <a href="#" class="proj-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Add Document</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="full-divider"></div>
+
+<!-- SKILLS -->
+<section id="skills" class="section">
+  <div class="section-header">
+    <div class="section-eyebrow">Expertise</div>
+    <h2 class="section-title">Technical <span>Skills</span></h2>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="skill-card-label" style="color:#60a5fa">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="2" x2="9" y2="4"/><line x1="15" y1="2" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="22"/><line x1="15" y1="20" x2="15" y2="22"/><line x1="2" y1="9" x2="4" y2="9"/><line x1="2" y1="15" x2="4" y2="15"/><line x1="20" y1="9" x2="22" y2="9"/><line x1="20" y1="15" x2="22" y2="15"/></svg>
+        Microcontrollers
+      </div>
+      <div class="skill-list">
+        <span class="skill-item">PIC18F / PIC24F / PIC32</span>
+        <span class="skill-item">ESP32 (S2, S3)</span>
+        <span class="skill-item">STM32 (Portenta H7)</span>
+        <span class="skill-item">Raspberry Pi / Jetson Nano</span>
+        <span class="skill-item">MPLAB X IDE</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-label" style="color:#34d399">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        Medical Devices
+      </div>
+      <div class="skill-list">
+        <span class="skill-item">CPAP / Auto CPAP / APAP</span>
+        <span class="skill-item">BiPAP-S / T / ST modes</span>
+        <span class="skill-item">HFNC Therapy</span>
+        <span class="skill-item">ISO 80601-2-70</span>
+        <span class="skill-item">IEC 62304 / SDLC Docs</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-label" style="color:#fb923c">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 19.07a10 10 0 0 1 0-14.14"/></svg>
+        Communication Protocols
+      </div>
+      <div class="skill-list">
+        <span class="skill-item">UART / I2C / SPI</span>
+        <span class="skill-item">SDHC / QSPI</span>
+        <span class="skill-item">CAN Bus</span>
+        <span class="skill-item">Wi-Fi (RNWF11 / WizFi360)</span>
+        <span class="skill-item">OTA / Bootloader</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-label" style="color:#a78bfa">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        PLC / HMI
+      </div>
+      <div class="skill-list">
+        <span class="skill-item">GX Works 2 / GX Works 3</span>
+        <span class="skill-item">GT Designer 3 (HMI)</span>
+        <span class="skill-item">MR Configurator 2 (Servo)</span>
+        <span class="skill-item">IEC 61131-3 Programming</span>
+        <span class="skill-item">CodeSys Basics</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-label" style="color:#facc15">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        Motion &amp; Control Systems
+      </div>
+      <div class="skill-list">
+        <span class="skill-item">Servo / Stepper / DC / BLDC</span>
+        <span class="skill-item">VFD Control</span>
+        <span class="skill-item">PID / Fuzzy Logic</span>
+        <span class="skill-item">Open/Closed Loop Control</span>
+        <span class="skill-item">Proportional Valves</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-label" style="color:#f472b6">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        Software &amp; Programming
+      </div>
+      <div class="skill-list">
+        <span class="skill-item">Embedded C (Bare-metal)</span>
+        <span class="skill-item">Python (CV, Scripts)</span>
+        <span class="skill-item">Tiny ML</span>
+        <span class="skill-item">SolidWorks / AutoCAD</span>
+        <span class="skill-item">Git / VS Code</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="full-divider"></div>
+
+<!-- DOCUMENTS -->
+<section id="docs" class="section">
+  <div class="section-header">
+    <div class="section-eyebrow">Documents</div>
+    <h2 class="section-title">Downloads &amp; <span>References</span></h2>
+  </div>
+  <div class="docs-grid">
+    <a href="Vamshi_cv_.pdf" class="doc-card" target="_blank">
+      <div class="doc-icon" style="background:rgba(59,130,246,0.12);">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+      </div>
+      <div>
+        <div class="doc-title">Curriculum Vitae</div>
+        <div class="doc-desc">Full resume with skills, education &amp; cover letter</div>
+        <div class="doc-tag">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Vamshi_cv_.pdf
+        </div>
+      </div>
+    </a>
+    <a href="Detailed_work_Info_-_Vamshi.pdf" class="doc-card" target="_blank">
+      <div class="doc-icon" style="background:rgba(20,184,166,0.12);">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#2dd4bf" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+      </div>
+      <div>
+        <div class="doc-title">Detailed Work Info</div>
+        <div class="doc-desc">Role-by-role responsibilities, tech stack, and achievements</div>
+        <div class="doc-tag" style="color:#2dd4bf">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Detailed_work_Info_-_Vamshi.pdf
+        </div>
+      </div>
+    </a>
+    <a href="VAMSHI_Projects_A_pptx.pdf" class="doc-card" target="_blank">
+      <div class="doc-icon" style="background:rgba(249,115,22,0.12);">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fb923c" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+      </div>
+      <div>
+        <div class="doc-title">Project Presentation</div>
+        <div class="doc-desc">Visual project contributions across all roles</div>
+        <div class="doc-tag" style="color:#fb923c">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          VAMSHI_Projects_A_pptx.pdf
+        </div>
+      </div>
+    </a>
+    <a href="#" class="doc-card" onclick="alert('Add your LinkedIn URL here'); return false;">
+      <div class="doc-icon" style="background:rgba(167,139,250,0.12);">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+      </div>
+      <div>
+        <div class="doc-title">LinkedIn Profile</div>
+        <div class="doc-desc">Professional network &amp; endorsements</div>
+        <div class="doc-tag" style="color:#a78bfa">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          Add your LinkedIn URL
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<div class="full-divider"></div>
+
+<!-- CONTACT -->
+<section id="contact" class="section">
+  <div class="section-header">
+    <div class="section-eyebrow">Get in Touch</div>
+    <h2 class="section-title">Contact <span>Vamshi</span></h2>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <div class="contact-row">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.15 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.06 1.2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 9.11a16 16 0 0 0 5.61 5.61l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.95 15a2 2 0 0 1 .02.92z"/></svg>
+        <a href="tel:+918688643286">+91 86886 43286</a>
+      </div>
+      <div class="contact-row">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        6-65/A Near Mazeed, Gudur, Palakurthy, Warangal, Telangana
+      </div>
+      <div class="contact-row">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+        B.Tech Mechatronics — MGIT Hyderabad
+      </div>
+      <div class="contact-row">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        5.6+ Years Experience · Open to Opportunities
+      </div>
+    </div>
+    <div class="contact-message">
+      <p>I am a qualified Mechatronics Engineer with deep expertise in embedded systems, medical device firmware, and industrial automation. I bring interdisciplinary skills across hardware, firmware, mechanical, and IoT — and I am actively looking to apply my knowledge in a forward-thinking organization.</p>
+      <br/>
+      <a href="tel:+918688643286" class="btn btn-primary" style="width:fit-content; margin-top:0.5rem;">📞 Call Now</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Vamshi Oruganti · Mechatronics Engineer · Warangal, Telangana, India</p>
+  <p style="margin-top:4px;">Replace "#" links in project cards with your real image/document URLs to make the portfolio fully live.</p>
+</footer>
+
+<script>
+function openImageLink(id) {
+  var url = prompt('Paste the image URL for this project:');
+  if (url) {
+    var box = document.getElementById('img-' + id);
+    if (box) {
+      box.innerHTML = '<img src="' + url + '" alt="Project image" />';
+    } else {
+      alert('Link saved! To embed it permanently, share the URL with your developer.');
+    }
+  }
+}
+function openDocLink(id) {
+  var url = prompt('Paste the document or image URL:');
+  if (url) window.open(url, '_blank');
+}
+</script>
+</body>
+</html>
