@@ -94,7 +94,6 @@ nav {
 }
 @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
 
-/* word color cycling — 22 items, 8-colour palette cycling */
 .typing-word.color-0  { color: #3b82f6; }
 .typing-word.color-1  { color: #a78bfa; }
 .typing-word.color-2  { color: #f97316; }
@@ -117,7 +116,6 @@ nav {
 .typing-word.color-19 { color: #14b8a6; }
 .typing-word.color-20 { color: #22c55e; }
 .typing-word.color-21 { color: #f59e0b; }
-/* typing icon */
 .typing-icon { display: inline-flex; align-items: center; margin-right: 7px; vertical-align: middle; font-size: 17px; }
 .typing-icon svg { width: 18px; height: 18px; }
 
@@ -179,14 +177,35 @@ nav {
 .tl::before { content: ''; position: absolute; left: 7px; top: 10px; bottom: 0; width: 1px; background: var(--border); }
 .tl-item { position: relative; margin-bottom: 2.5rem; }
 .tl-dot { position: absolute; left: -28px; top: 6px; width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--bg); }
-.tl-inner { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--r); padding: 1.25rem 1.5rem; }
-.tl-role { font-family: var(--font-head); font-size: 17px; font-weight: 600; }
-.tl-company { font-size: 14px; color: var(--accent); margin-top: 3px; }
-.tl-period { font-size: 12px; color: var(--text3); margin-top: 3px; }
-.tl-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 12px; }
+.tl-inner { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--r); padding: 1.5rem 1.75rem; }
+.tl-head-row { display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+.tl-role { font-family: var(--font-head); font-size: 18px; font-weight: 600; }
+.tl-company { font-size: 14px; color: var(--accent); margin-top: 3px; font-weight: 500; }
+.tl-location { font-size: 12px; color: var(--text3); margin-top: 2px; }
+.tl-period-badge { font-size: 11px; font-weight: 500; color: var(--text2); background: var(--bg3); border: 1px solid var(--border2); padding: 4px 11px; border-radius: 100px; white-space: nowrap; }
+.tl-summary { font-size: 13px; color: var(--text2); margin-top: 12px; line-height: 1.65; }
+.tl-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 14px; }
 .tl-tag { font-size: 11px; padding: 3px 9px; border-radius: 100px; background: var(--bg3); color: var(--text2); border: 1px solid var(--border); }
-.tl-bullets { margin-top: 12px; padding-left: 16px; display: flex; flex-direction: column; gap: 5px; }
+.tl-bullets { margin-top: 14px; padding-left: 18px; display: flex; flex-direction: column; gap: 7px; }
 .tl-bullets li { font-size: 13px; color: var(--text2); }
+.tl-bullets li::marker { color: var(--accent); }
+.tl-more {
+  margin-top: 14px; font-size: 12px; font-weight: 500; color: var(--accent);
+  background: none; border: none; cursor: pointer; padding: 0; display: inline-flex; align-items: center; gap: 4px;
+  font-family: var(--font-body);
+}
+.tl-more svg { width: 12px; height: 12px; transition: transform 0.2s; }
+.tl-more.open svg { transform: rotate(180deg); }
+.tl-extra { display: none; margin-top: 10px; padding-left: 18px; flex-direction: column; gap: 7px; }
+.tl-extra.open { display: flex; }
+.tl-extra li { font-size: 13px; color: var(--text2); }
+.tl-extra li::marker { color: var(--text3); }
+.tl-achv {
+  margin-top: 14px; display: flex; flex-direction: column; gap: 8px;
+  border-top: 1px solid var(--border); padding-top: 14px;
+}
+.tl-achv-item { display: flex; align-items: flex-start; gap: 9px; font-size: 13px; color: var(--text); }
+.tl-achv-item svg { width: 15px; height: 15px; color: var(--green); flex-shrink: 0; margin-top: 2px; }
 
 /* PROJECTS GRID */
 .proj-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
@@ -278,6 +297,21 @@ footer { border-top: 1px solid var(--border); padding: 2rem; text-align: center;
   .contact-grid { grid-template-columns: 1fr; }
   nav .nav-links { display: none; }
 }
+
+/* DEV BANNER */
+.dev-banner {
+  position: fixed; top: 56px; left: 0; right: 0; z-index: 99;
+  background: linear-gradient(90deg, rgba(245,158,11,0.15), rgba(249,115,22,0.15));
+  border-bottom: 1px solid rgba(245,158,11,0.35);
+  color: #fcd34d;
+  font-size: 12.5px; font-weight: 500;
+  text-align: center;
+  padding: 9px 1rem;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  backdrop-filter: blur(10px);
+}
+.dev-banner svg { width: 15px; height: 15px; flex-shrink: 0; }
+.dev-banner-spacer { height: 38px; }
 </style>
 </head>
 <body>
@@ -295,6 +329,13 @@ footer { border-top: 1px solid var(--border); padding: 2rem; text-align: center;
   </ul>
   <a href="tel:+918688643286" class="nav-cta">📞 Hire Me</a>
 </nav>
+
+<!-- UNDER DEVELOPMENT BANNER -->
+<div class="dev-banner">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+  This portfolio is still under development — content, projects, and images are being updated. Expected completion: 5th July 2026.
+</div>
+<div class="dev-banner-spacer"></div>
 
 <!-- HERO -->
 <div id="about" style="max-width:1100px; margin:0 auto; padding:0 2rem;">
@@ -354,16 +395,8 @@ footer { border-top: 1px solid var(--border); padding: 2rem; text-align: center;
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
               MGIT Mechatronics + CITD Mechatronics(NSQF Level-6)
             </div>
-            <!-- <div class="hcard-row">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-              <span id="exp-detail-text">Calculating experience...</span>
-            </div> -->
           </div>
           <div class="chip-row">
-            <!-- <span class="chip chip-blue">Product Development</span>
-            <span class="chip chip-teal">Hardware & Firmware</span>
-            <span class="chip chip-coral">PLC - HMI</span>
-            <span class="chip chip-purple">Breath Pattern Analysis and Predictions</span> -->
           </div>
         </div>
       </div>
@@ -376,103 +409,144 @@ footer { border-top: 1px solid var(--border); padding: 2rem; text-align: center;
 <!-- EXPERIENCE -->
 <section id="experience" class="section">
   <div class="section-header">
-    <div class="section-eyebrow">Work History</div>
+    <div class="section-eyebrow">Work History · 5.6+ Years</div>
     <h2 class="section-title">Experience <span>Timeline</span></h2>
   </div>
   <div class="tl">
 
+    <!-- AVANTEL -->
     <div class="tl-item">
       <div class="tl-dot dot-blue"></div>
       <div class="tl-inner">
-        <div class="tl-role">Embedded Engineer — Design &amp; Development</div>
-        <div class="tl-company">Avantel · Visakhapatnam / Hyderabad</div>
-        <div class="tl-period">August 2023 – Present</div>
+        <div class="tl-head-row">
+          <div>
+            <div class="tl-role">Embedded Engineer — Firmware Team Lead</div>
+            <div class="tl-company">Avantel</div>
+            <div class="tl-location">Visakhapatnam &amp; Hyderabad, India</div>
+          </div>
+          <div class="tl-period-badge">Aug 2023 – Present</div>
+        </div>
+        <p class="tl-summary">Device Architect &amp; Firmware Team Lead for CPAP, BiPAP, and HFNC medical devices — owning end-to-end product development from concept to production in compliance with ISO 80601-2-70 and IEC 62304.</p>
         <ul class="tl-bullets">
-          <li>Firmware/Embedded Team Lead for CPAP, BiPAP, and HFNC medical device development.</li>
-          <li>Led end-to-end product development from prototype to production under ISO 80601-2-70 and IEC 62304.</li>
-          <li>Designed therapy algorithms: CPAP, Auto CPAP, APAP, BiPAP-S/T/ST, HFNC.</li>
-          <li>Built snoring &amp; flow restriction simulators saving the company 12+ lakhs in testing costs.</li>
-          <li>Implemented OTA firmware updates, Wi-Fi connectivity, SD card therapy logging, and GUI displays.</li>
+          <li>Designed and implemented therapy control &amp; safety algorithms across CPAP, Auto CPAP, APAP, BiPAP-S/T/ST, and HFNC modes to improve patient comfort and device performance.</li>
+          <li>Developed real-time bare-metal firmware on PIC18F/24F/32, including blower motor control using closed-loop, feedforward, and fuzzy logic techniques.</li>
+          <li>Architected device–app–cloud connectivity — Wi-Fi data transfer, therapy logging, and OTA firmware updates with fail-safe mechanisms.</li>
+          <li>Implemented flow-pattern detection algorithms for snoring, flow limitation, and breath-pattern variation, along with prediction/prevention logic for sleep events.</li>
         </ul>
+        <ul class="tl-extra" id="extra-avantel">
+          <li>Performed pressure and flow sensor calibration using correlation and regression methods for clinical-grade accuracy.</li>
+          <li>Implemented I2C, SPI, SDHC, and UART communication for sensors, EEPROM, RTC, SD card, and display synchronization; built SDHC SD card therapy data logging with RTC timestamping.</li>
+          <li>Implemented Device Firmware Update via QSPI Flash for controller and display, with state-machine–based firmware architecture.</li>
+          <li>Performed advanced firmware/hardware debugging — timing analysis, profiling, schematic review, network packet analysis, and Wi-Fi protocol debugging (Wireshark/sniffer).</li>
+          <li>Designed system-level and low-level architectures; guided interns in SDLC documentation per IEC 62304.</li>
+          <li>Coordinated cross-functionally with mechanical, PCB, hardware, software, QA, store, and sales teams.</li>
+        </ul>
+        <button class="tl-more" onclick="toggleExtra('extra-avantel', this)">Show more details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="tl-achv">
+          <div class="tl-achv-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            Designed and built in-house snoring &amp; breath simulators, saving the company 12+ lakhs and removing dependency on external test equipment.
+          </div>
+        </div>
         <div class="tl-tags">
           <span class="tl-tag">PIC18F/24F/32</span><span class="tl-tag">MPLAB X</span>
           <span class="tl-tag">ISO 80601-2-70</span><span class="tl-tag">IEC 62304</span>
-          <span class="tl-tag">UART/I2C/SPI/SDHC</span><span class="tl-tag">OTA</span>
-          <span class="tl-tag">Wi-Fi/Cloud</span><span class="tl-tag">Fuzzy/PID</span>
+          <span class="tl-tag">UART/I2C/SPI/SDHC/QSPI</span><span class="tl-tag">OTA &amp; Bootloader</span>
+          <span class="tl-tag">Wi-Fi/Cloud</span><span class="tl-tag">Fuzzy/PID/Feedforward</span>
         </div>
       </div>
     </div>
 
-    <div class="tl-item">
-      <div class="tl-dot dot-purple"></div>
-      <div class="tl-inner">
-        <div class="tl-role">Mechatronics Engineer</div>
-        <div class="tl-company">HS Motion · Mumbai -> Punjab</div>
-        <div class="tl-period">2023 (Short Tenure)</div>
-        <ul class="tl-bullets">
-          <li>Technical documentation for automatic sorter projects.</li>
-          <li>Designed circuit sketches and identified AMR hardware parts suppliers.</li>
-        </ul>
-        <div class="tl-tags">
-          <span class="tl-tag">AMR</span><span class="tl-tag">Circuit Design</span><span class="tl-tag">Technical Docs</span>
-        </div>
-      </div>
-    </div>
-
+    <!-- HBL -->
     <div class="tl-item">
       <div class="tl-dot dot-green"></div>
       <div class="tl-inner">
-        <div class="tl-role">Senior Engineer EME — Development Division</div>
-        <div class="tl-company">HBL Power Systems Ltd · Shamirpet, Telangana</div>
-        <div class="tl-period">September 2021 – April 2023</div>
+        <div class="tl-head-row">
+          <div>
+            <div class="tl-role">Senior Engineer EME — Development Division</div>
+            <div class="tl-company">HBL Power Systems Ltd</div>
+            <div class="tl-location">Shamirpet, Telangana, India</div>
+          </div>
+          <div class="tl-period-badge">Sep 2021 – Apr 2023</div>
+        </div>
+        <p class="tl-summary">Led cross-functional design and deployment of in-house industrial automation systems, reducing dependency on external vendors and driving Industry 4.0 initiatives across departments.</p>
         <ul class="tl-bullets">
-          <li>Led Industry 4.0 initiatives across departments — IoT, data analytics, smart factory.</li>
-          <li>Designed PLC/HMI programs for 8+ industrial automation projects end-to-end.</li>
-          <li>Motion control using Servo, Stepper, DC, BLDC motors and VFDs.</li>
-          <li>Developed cloud RH monitoring solution saving 6.7 lakhs vs external supplier quote.</li>
-          <li>Computer vision with Jetson Nano to detect and fill 0.6 mm holes with high accuracy.</li>
+          <li>Designed PLC (IEC 61131) programs and HMIs end-to-end for 8+ industrial automation projects, from electrical/electronic design through BOM and validation.</li>
+          <li>Built motion control systems using Servo, Stepper, DC, and BLDC motors with VFDs for precise, efficient machine operation.</li>
+          <li>Developed a cloud-based RH monitoring solution for glove boxes — delivered for ~₹80K against a ₹7.5 lakh supplier quote, a ~90% cost saving.</li>
+          <li>Implemented computer vision on Jetson Nano/Raspberry Pi to detect and fill 0.6 mm holes with high accuracy.</li>
         </ul>
+        <ul class="tl-extra" id="extra-hbl">
+          <li>Selected and integrated pneumatic components including proportional valves; designed optimized pneumatic circuits.</li>
+          <li>Applied SolidWorks and 3D printing for concept development, rapid prototyping, and custom mechanical parts.</li>
+          <li>Managed project budgeting, vendor coordination, and BOM preparation for electronic/electrical procurement.</li>
+          <li>Conducted machine testing and validation to confirm performance and safety standards before dispatch.</li>
+        </ul>
+        <button class="tl-more" onclick="toggleExtra('extra-hbl', this)">Show more details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="tl-achv">
+          <div class="tl-achv-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            Delivered 8+ automation projects in-house (Ampoule Making, Electro-Polishing, Tank Level, Filling, Weight Sorting, Electrode Shearing) reducing external vendor dependency.
+          </div>
+        </div>
         <div class="tl-tags">
-          <span class="tl-tag">PLC (IEC 61131)</span><span class="tl-tag">HMI GT Designer</span>
-          <span class="tl-tag">Servo/Stepper/VFD</span><span class="tl-tag">ESP32-S2</span>
+          <span class="tl-tag">PLC (IEC 61131)</span><span class="tl-tag">HMI · GT Designer 3</span>
+          <span class="tl-tag">Servo/Stepper/BLDC/VFD</span><span class="tl-tag">ESP32-S2</span>
           <span class="tl-tag">Jetson Nano</span><span class="tl-tag">SolidWorks</span>
           <span class="tl-tag">Pneumatics</span><span class="tl-tag">3D Printing</span>
         </div>
       </div>
     </div>
 
+    <!-- VSRMKP -->
     <div class="tl-item">
       <div class="tl-dot dot-amber"></div>
       <div class="tl-inner">
-        <div class="tl-role">Graduate Engineering Trainee</div>
-        <div class="tl-company">VSRMKP Technologies Pvt Ltd · Hyderabad</div>
-        <div class="tl-period">January 2021 – June 2021</div>
+        <div class="tl-head-row">
+          <div>
+            <div class="tl-role">Graduate Engineer Trainee — Contract</div>
+            <div class="tl-company">VSRMKP Technologies Pvt Ltd</div>
+            <div class="tl-location">Hyderabad, Telangana, India</div>
+          </div>
+          <div class="tl-period-badge">Jan 2021 – Jun 2021</div>
+        </div>
+        <p class="tl-summary">Designed a Li-ion battery pack and built an E-bike prototype around a BLDC hub motor, with embedded BMS software for battery safety and lifespan.</p>
         <ul class="tl-bullets">
-          <li>Designed and built a Li-ion battery pack powered E-Bike with BLDC hub motor.</li>
-          <li>Developed BMS software: over/under voltage protection, current &amp; temperature monitoring.</li>
-          <li>MATLAB simulations for speed control, SOC, and energy optimization.</li>
+          <li>Developed and tested embedded software for a 1S–7S BMS managing charge/discharge cycles, over/under-voltage, reverse-polarity, and temperature protection.</li>
+          <li>Assembled the BLDC hub motor with precise mechanical alignment for optimized torque and efficiency.</li>
+          <li>Simulated E-bike functionality in MATLAB — speed control, state-of-charge monitoring, and energy optimization.</li>
+          <li>Implemented real-time control and monitoring on ESP32 modules for vehicle operation.</li>
         </ul>
         <div class="tl-tags">
-          <span class="tl-tag">BLDC</span><span class="tl-tag">Li-ion BMS</span>
+          <span class="tl-tag">BLDC Hub Motor</span><span class="tl-tag">Li-ion BMS (1S–7S)</span>
           <span class="tl-tag">ESP32</span><span class="tl-tag">MATLAB</span><span class="tl-tag">Embedded C</span>
         </div>
       </div>
     </div>
 
+    <!-- MGIT -->
     <div class="tl-item">
       <div class="tl-dot dot-gray"></div>
       <div class="tl-inner">
-        <div class="tl-role">Technical Assistant (JNTUH Sponsored Project)</div>
-        <div class="tl-company">Mahatma Gandhi Institute of Technology · Hyderabad</div>
-        <div class="tl-period">November 2019 – April 2020</div>
+        <div class="tl-head-row">
+          <div>
+            <div class="tl-role">Technical Assistant — Contract</div>
+            <div class="tl-company">Mahatma Gandhi Institute of Technology</div>
+            <div class="tl-location">Hyderabad, Telangana, India</div>
+          </div>
+          <div class="tl-period-badge">Nov 2019 – Apr 2020</div>
+        </div>
+        <p class="tl-summary">Led the mechatronics-based design of an Automatic TIG Welding System for consistent weld quality, sponsored by JNTUH under TEQIP-III.</p>
         <ul class="tl-bullets">
-          <li>Designed and fabricated an Automatic TIG Welding system using mechatronics principles.</li>
-          <li>Maintained constant linear momentum during TIG welding for uniform weld quality.</li>
-          <li>Project sponsored by JNTUH under ref: JNTUH/TEQIP-III/CRS/2019/MECH/06.</li>
+          <li>Integrated encoders, position sensors, DC gear motors, and servo motors for real-time precision control of the welding head.</li>
+          <li>Developed embedded firmware for real-time sensor feedback and closed-loop motor control.</li>
+          <li>Implemented I2C/SPI communication between sensors, actuators, and the main controller.</li>
+          <li>Designed a display interface for monitoring and control, focused on constant linear momentum during welding.</li>
         </ul>
         <div class="tl-tags">
           <span class="tl-tag">DC/Servo Motors</span><span class="tl-tag">Encoders</span>
           <span class="tl-tag">I2C/SPI</span><span class="tl-tag">Embedded C</span><span class="tl-tag">Closed Loop</span>
+          <span class="tl-tag">JNTUH/TEQIP-III/CRS/2019/MECH/06</span>
         </div>
       </div>
     </div>
@@ -874,7 +948,6 @@ footer { border-top: 1px solid var(--border); padding: 2rem; text-align: center;
 <script>
 // =============================================
 // TYPING ANIMATION — 23 specializations with icons
-// Icons are inline SVG paths rendered per word
 // =============================================
 const TYPING_WORDS = [
   { text: 'Device Architect',
@@ -959,10 +1032,8 @@ function typeLoop() {
   const current  = TYPING_WORDS[wordIndex];
   const fullText = current.text;
 
-  // Update color class
   typingEl.className = 'typing-word color-' + current.color;
 
-  // Update icon (only when starting a new word)
   if (charIndex === 1 && !isDeleting) {
     iconEl.innerHTML = current.icon;
     iconEl.style.color = getComputedStyle(typingEl).color;
@@ -994,13 +1065,6 @@ setTimeout(typeLoop, 800);
 
 // =============================================
 // EXPERIENCE AUTO-CALCULATOR
-// Fixed months per role before Avantel:
-//   MGIT Tech Asst  Nov 2019–Apr 2020 = 6 mo
-//   VSRMKP Trainee  Jan 2021–Jun 2021 = 6 mo
-//   HBL Sr Eng      Sep 2021–Apr 2023 = 20 mo
-//   HS Motion       ~2 mo (short)     = 2 mo
-//   Total fixed                       = 34 mo
-// Avantel: Aug 2023 → live counter
 // =============================================
 function calcExperience() {
   const FIXED_MONTHS  = 34;
@@ -1032,8 +1096,6 @@ function calcExperience() {
 
 // =============================================
 // PROJECTS COUNTER
-// Add each new project to this list —
-// the stat badge updates automatically.
 // =============================================
 const PROJECTS = [
   'CPAP / BiPAP / HFNC Medical Device',
@@ -1070,6 +1132,14 @@ function openImageLink(id) {
     var box = document.getElementById('img-' + id);
     if (box) box.innerHTML = '<img src="' + url + '" alt="Project image" />';
   }
+}
+
+// Experience "show more" toggle
+function toggleExtra(id, btn) {
+  const el = document.getElementById(id);
+  el.classList.toggle('open');
+  btn.classList.toggle('open');
+  btn.firstChild.textContent = el.classList.contains('open') ? 'Show less ' : 'Show more details ';
 }
 </script>
 </body>
