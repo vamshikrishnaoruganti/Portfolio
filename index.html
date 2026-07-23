@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Vamshi Oruganti — Embedded & IoT Engineer</title>
+<title>Vamshi Oruganti — Embedded & Product Developer Engineer</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <style>
 :root {
@@ -108,18 +108,37 @@ nav {
   background: radial-gradient(circle, rgba(59,130,246,0.15) 0%, transparent 70%);
 }
 .avatar-circle {
-  width: 80px; height: 80px; border-radius: 50%;
+  width: 120px; height: 120px; border-radius: 50%;
   background: linear-gradient(135deg, #1d4ed8, #7c3aed);
   display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
   font-family: var(--font-head); font-size: 26px; font-weight: 700; color: #fff;
   margin-bottom: 1.25rem;
+  cursor: pointer; transition: transform 0.2s;
 }
+.avatar-circle img { width: 100%; height: 100%; object-fit: cover; }
+.avatar-circle:hover { transform: scale(1.05); }
 .hcard-name { font-family: var(--font-head); font-size: 20px; font-weight: 600; }
 .hcard-role { font-size: 13px; color: var(--text2); margin-top: 3px; }
 .hcard-info { margin-top: 1.25rem; display: flex; flex-direction: column; gap: 10px; }
-.hcard-row { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--text2); }
+.hcard-row { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--text2); text-decoration: none; transition: color 0.2s; }
+a.hcard-row:hover { color: var(--accent); }
 .hcard-row svg { width: 15px; height: 15px; opacity: 0.5; flex-shrink: 0; }
 .chip-row { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 1.25rem; }
+.social-icon-link {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 38px; height: 38px; border-radius: 50%;
+  background: rgba(10,102,194,0.12); color: #0a66c2;
+  border: 1px solid rgba(10,102,194,0.3);
+  transition: background 0.2s, transform 0.2s;
+}
+.social-icon-link:hover { background: rgba(10,102,194,0.22); transform: translateY(-2px); }
+.icon-phone { background: rgba(34,197,94,0.12); color: #22c55e; border-color: rgba(34,197,94,0.3); }
+.icon-phone:hover { background: rgba(34,197,94,0.22); }
+.icon-gmail { background: rgba(239,68,68,0.12); color: #ef4444; border-color: rgba(239,68,68,0.3); }
+.icon-gmail:hover { background: rgba(239,68,68,0.22); }
+.icon-maps { background: rgba(245,158,11,0.12); color: #f59e0b; border-color: rgba(245,158,11,0.3); }
+.icon-maps:hover { background: rgba(245,158,11,0.22); }
 .chip { font-size: 11px; padding: 4px 10px; border-radius: 100px; font-weight: 500; }
 .chip-blue { background: rgba(59,130,246,0.15); color: #93c5fd; }
 .chip-teal { background: rgba(20,184,166,0.12); color: #5eead4; }
@@ -222,13 +241,13 @@ nav {
 .doc-desc { font-size: 12px; color: var(--text3); margin-top: 3px; }
 .doc-tag { font-size: 11px; color: var(--accent); margin-top: 8px; display: flex; align-items: center; gap: 4px; }
 .doc-tag svg { width: 12px; height: 12px; }
-.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center; }
 .contact-info { display: flex; flex-direction: column; gap: 14px; }
 .contact-row { display: flex; align-items: center; gap: 12px; font-size: 14px; color: var(--text2); }
 .contact-row svg { width: 16px; height: 16px; color: var(--accent); flex-shrink: 0; }
 .contact-row a { color: var(--accent); text-decoration: none; }
 .contact-row a:hover { text-decoration: underline; }
-.contact-message { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--r); padding: 1.5rem; }
+.contact-message { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--r); padding: 1.5rem; margin-top: -4rem; }
 .contact-message p { font-size: 14px; color: var(--text2); line-height: 1.75; }
 footer { border-top: 1px solid var(--border); padding: 2rem; text-align: center; font-size: 12px; color: var(--text3); }
 .full-divider { height: 1px; background: var(--border); }
@@ -338,28 +357,43 @@ footer { border-top: 1px solid var(--border); padding: 2rem; text-align: center;
       </div>
       <div>
         <div class="hero-card">
-          <div class="avatar-circle">VO</div>
+          <a href="https://www.linkedin.com/in/vamshi-o-a79591b2/" target="_blank" rel="noopener" title="View LinkedIn Profile">
+            <div class="avatar-circle"><img src="Images/ProfilePic.png" alt="Vamshi Oruganti" /></div>
+          </a>
           <div class="hcard-name">Vamshi Oruganti</div>
           <div class="hcard-role">Embedded Enginner — Avantel (Current)</div>
           <div class="hcard-info">
-            <div class="hcard-row">
+            <a href="https://www.google.com/maps/search/?api=1&query=Hyderabad,Telangana,India" target="_blank" rel="noopener" class="hcard-row">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
               Hyderabad, Telangana, India
-            </div>
-            <div class="hcard-row">
+            </a>
+            <a href="tel:+918688643286" class="hcard-row">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.15 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.06 1.2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 9.11a16 16 0 0 0 5.61 5.61l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.95 15a2 2 0 0 1 .02.92z"/></svg>
               +91 86886 43286
-            </div>
-            <div class="hcard-row">
+            </a>
+            <a href="mailto:vamshikrishnaoruganti@gmail.com" class="hcard-row">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
               vamshikrishnaoruganti@gmail.com
-            </div>
+            </a>
             <div class="hcard-row">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
               MGIT Mechatronics + CITD Mechatronics(NSQF Level-6)
             </div>
           </div>
-          <div class="chip-row"></div>
+          <div class="chip-row">
+            <a href="https://www.linkedin.com/in/vamshi-o-a79591b2/" target="_blank" rel="noopener" title="View LinkedIn Profile" class="social-icon-link">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.114 20.452H3.558V9h3.556v11.452z"/></svg>
+            </a>
+            <a href="tel:+918688643286" title="Call Vamshi" class="social-icon-link icon-phone">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.15 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.06 1.2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 9.11a16 16 0 0 0 5.61 5.61l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.95 15a2 2 0 0 1 .02.92z"/></svg>
+            </a>
+            <a href="mailto:vamshikrishnaoruganti@gmail.com" title="Email Vamshi" class="social-icon-link icon-gmail">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </a>
+            <a href="https://www.google.com/maps/search/?api=1&query=Hyderabad,+Telangana,+India" target="_blank" rel="noopener" title="View on Google Maps" class="social-icon-link icon-maps">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -523,6 +557,9 @@ footer { border-top: 1px solid var(--border); padding: 2rem; text-align: center;
             <img src="Images/CPAP/CPAP_V2.png" alt="CPAP Device V2" class="carousel-img" />
             <img src="Images/CPAP/CPAP_V3.png" alt="CPAP Device V3" class="carousel-img" />
             <img src="Images/CPAP/CPAP_V3_1.PNG" alt="CPAP Device V3.1" class="carousel-img" />
+            <img src="Images/CPAP/CPAP%20APP1.jpeg" alt="CPAP App Screen 1" class="carousel-img" />
+            <img src="Images/CPAP/CPAP%20APP2.jpeg" alt="CPAP App Screen 2" class="carousel-img" />
+            <img src="Images/CPAP/CPAP%20APP3.jpeg" alt="CPAP App Screen 3" class="carousel-img" />
           </div>
           <button class="carousel-btn carousel-prev" onclick="prevCpapImage()" title="Previous image">❮</button>
           <button class="carousel-btn carousel-next" onclick="nextCpapImage()" title="Next image">❯</button>
@@ -545,10 +582,11 @@ footer { border-top: 1px solid var(--border); padding: 2rem; text-align: center;
       <div class="proj-img-box" id="img-bipap">
         <div class="carousel-container">
           <div class="carousel-track">
-            <img src="Images/CPAP/CPAP_V1.png" alt="BiPAP Device V1" class="carousel-img" />
-            <img src="Images/CPAP/CPAP_V2.png" alt="BiPAP Device V2" class="carousel-img" />
             <img src="Images/CPAP/CPAP_V3.png" alt="BiPAP Device V3" class="carousel-img" />
             <img src="Images/CPAP/CPAP_V3_1.PNG" alt="BiPAP Device V3.1" class="carousel-img" />
+            <img src="Images/CPAP/CPAP%20APP1.jpeg" alt="BiPAP App Screen 1" class="carousel-img" />
+            <img src="Images/CPAP/CPAP%20APP2.jpeg" alt="BiPAP App Screen 2" class="carousel-img" />
+            <img src="Images/CPAP/CPAP%20APP3.jpeg" alt="BiPAP App Screen 3" class="carousel-img" />
           </div>
           <button class="carousel-btn carousel-prev" onclick="prevBipapImage()" title="Previous image">❮</button>
           <button class="carousel-btn carousel-next" onclick="nextBipapImage()" title="Next image">❯</button>
@@ -987,14 +1025,14 @@ footer { border-top: 1px solid var(--border); padding: 2rem; text-align: center;
         <div class="doc-tag" style="color:#fb923c"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>VAMSHI_Projects_A_pptx.pdf</div>
       </div>
     </a>
-    <a href="#" class="doc-card" onclick="alert('Add your LinkedIn URL here'); return false;">
+    <a href="https://www.linkedin.com/in/vamshi-o-a79591b2/" class="doc-card" target="_blank" rel="noopener">
       <div class="doc-icon" style="background:rgba(167,139,250,0.12);">
         <svg viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
       </div>
       <div>
         <div class="doc-title">LinkedIn Profile</div>
-        <div class="doc-desc">Professional network &amp; endorsements</div>
-        <div class="doc-tag" style="color:#a78bfa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Add your LinkedIn URL</div>
+        <div class="doc-desc">Professional network</div>
+        <div class="doc-tag" style="color:#a78bfa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>View LinkedIn Profile</div>
       </div>
     </a>
   </div>
@@ -1028,14 +1066,12 @@ footer { border-top: 1px solid var(--border); padding: 2rem; text-align: center;
     </div>
     <div class="contact-message">
       <p>I am a qualified Embedded &amp; IoT Engineer with deep expertise in embedded firmware, medical device development, and industrial automation. I specialize in taking products from prototype to production under international standards (ISO 80601-2-70, IEC 62304, IEC 61131-3) — and I am actively looking to apply my knowledge in a forward-thinking organization.</p>
-      <br/>
-      <a href="tel:+918688643286" class="btn btn-primary" style="width:fit-content; margin-top:0.5rem;">📞 Call Now</a>
     </div>
   </div>
 </section>
 
 <footer>
-  <p>© <span id="footer-year"></span> Vamshi Oruganti · Embedded &amp; IoT Engineer · Hyderabad, Telangana, India</p>
+  <p>© <span id="footer-year"></span> Vamshi Oruganti · Embedded &amp; Product Development Engineer · Hyderabad, Telangana, India</p>
 </footer>
 
 <script>
@@ -1220,7 +1256,7 @@ function initCarousel() {
   new ImageCarousel('img-elec', 2000, 680);
   new ImageCarousel('img-amp', 2000, 850);
   new ImageCarousel('img-tank', 2000, 1020);
-  new ImageCarousel('img-vision', 2000, 1190);
+  new ImageCarousel('img-vision',2000, 1190);
   new ImageCarousel('img-ebike', 2000, 1360);
   new ImageCarousel('img-tig', 2000, 1530);
   new ImageCarousel('img-btech', 2000, 1700);
