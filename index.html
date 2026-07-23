@@ -531,11 +531,37 @@ footer { border-top: 1px solid var(--border); padding: 2rem; text-align: center;
       </div>
       <div class="proj-body">
         <div class="proj-phase">Avantel · 2023–Present</div>
-        <div class="proj-name">CPAP / BiPAP / HFNC Medical Devices</div>
-        <div class="proj-desc">Firmware team lead for full medical-grade respiratory therapy device. Developed therapy modes (CPAP, Auto CPAP, APAP, BiPAP-S/T/ST, HFNC), blower control algorithms, patient safety monitoring, and Wi-Fi cloud connectivity.</div>
+        <div class="proj-name">CPAP / Auto CPAP / HFNC Medical Device</div>
+        <div class="proj-desc">Firmware team\product lead for CPAP-class respiratory therapy device. Developed CPAP, Auto CPAP, and HFNC therapy modes, blower control algorithms, patient safety monitoring, and Wi-Fi cloud connectivity.</div>
         <div class="proj-tags">
           <span class="proj-tag">PIC32</span><span class="proj-tag">ISO 80601-2-70</span>
           <span class="proj-tag">IEC 62304</span><span class="proj-tag">Therapy Algorithms</span>
+          <span class="proj-tag">OTA</span><span class="proj-tag">Fuzzy/PID</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-img-box" id="img-bipap">
+        <div class="carousel-container">
+          <div class="carousel-track">
+            <img src="Images/CPAP/CPAP_V1.png" alt="BiPAP Device V1" class="carousel-img" />
+            <img src="Images/CPAP/CPAP_V2.png" alt="BiPAP Device V2" class="carousel-img" />
+            <img src="Images/CPAP/CPAP_V3.png" alt="BiPAP Device V3" class="carousel-img" />
+            <img src="Images/CPAP/CPAP_V3_1.PNG" alt="BiPAP Device V3.1" class="carousel-img" />
+          </div>
+          <button class="carousel-btn carousel-prev" onclick="prevBipapImage()" title="Previous image">❮</button>
+          <button class="carousel-btn carousel-next" onclick="nextBipapImage()" title="Next image">❯</button>
+          <div class="carousel-dots" id="bipap-dots"></div>
+        </div>
+      </div>
+      <div class="proj-body">
+        <div class="proj-phase">Avantel · 2023–Present</div>
+        <div class="proj-name">BiPAP-S / T / ST Medical Device</div>
+        <div class="proj-desc">Firmware team lead for BiPAP-class bilevel respiratory therapy device. Developed BiPAP-S, BiPAP-T, and BiPAP-ST therapy modes with independent IPAP/EPAP pressure control, patient safety monitoring, and Wi-Fi cloud connectivity.</div>
+        <div class="proj-tags">
+          <span class="proj-tag">PIC32</span><span class="proj-tag">ISO 80601-2-70</span>
+          <span class="proj-tag">IEC 62304</span><span class="proj-tag">IPAP/EPAP Control</span>
           <span class="proj-tag">OTA</span><span class="proj-tag">Fuzzy/PID</span>
         </div>
       </div>
@@ -645,8 +671,8 @@ footer { border-top: 1px solid var(--border); padding: 2rem; text-align: center;
     </div>
 
     <div class="proj-card">
-      <div class="proj-img-box" id="img-fill">
-        <img src="filling-machine.jpg" alt="Electrolyte Filling Machine" />
+      <div class="proj-img-box empty" id="img-fill">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
       </div>
       <div class="proj-body">
         <div class="proj-phase">HBL Power Systems · 2021–2023</div>
@@ -657,14 +683,14 @@ footer { border-top: 1px solid var(--border); padding: 2rem; text-align: center;
     </div>
 
     <div class="proj-card">
-      <div class="proj-img-box" id="img-weight">
-        <img src="weight-sorting.jpg" alt="Weight Sorting System" />
+      <div class="proj-img-box empty" id="img-weight">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 0 0 6.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 0 0 6.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"/></svg>
       </div>
       <div class="proj-body">
         <div class="proj-phase">HBL Power Systems · 2021–2023</div>
         <div class="proj-name">Weight Sorting System</div>
         <div class="proj-desc">HMI and PLC based system sorting battery plates by weight. Servo motor configuration and integration, mechanical design and development from scratch.</div>
-        <div class="proj-tags"><span class="proj-tag">Servo Motor</span><span class="proj-tag">PLC</span><span class="proj-tag">HMI</span><span class="proj-tag">Mechanical Design</span></div>
+        <div class="proj-tags"><span class="proj-tag">Sensor Calibration</span><span class="proj-tag">Servo Configuration</span><span class="proj-tag">PLC HMI Design</span></div>
       </div>
     </div>
 
@@ -695,7 +721,17 @@ footer { border-top: 1px solid var(--border); padding: 2rem; text-align: center;
 
     <div class="proj-card">
       <div class="proj-img-box" id="img-ebike">
-        <img src="ebike-bms.jpg" alt="E-Bike with Li-ion BMS" />
+        <div class="carousel-container">
+          <div class="carousel-track">
+            <img src="Images/E%20Bike/E%20Bike%201.jpeg" alt="E-Bike with Li-ion BMS 1" class="carousel-img" />
+            <img src="Images/E%20Bike/E%20Bike%202.jpeg" alt="E-Bike with Li-ion BMS 2" class="carousel-img" />
+            <img src="Images/E%20Bike/E%20Bike%203.jpeg" alt="E-Bike with Li-ion BMS 3" class="carousel-img" />
+            <img src="Images/E%20Bike/E%20Bike%204.jpeg" alt="E-Bike with Li-ion BMS 4" class="carousel-img" />
+          </div>
+          <button class="carousel-btn carousel-prev" onclick="prevEbikeImage()" title="Previous image">❮</button>
+          <button class="carousel-btn carousel-next" onclick="nextEbikeImage()" title="Next image">❯</button>
+          <div class="carousel-dots" id="ebike-dots"></div>
+        </div>
       </div>
       <div class="proj-body">
         <div class="proj-phase">VSRMKP Technologies · 2021</div>
@@ -707,7 +743,16 @@ footer { border-top: 1px solid var(--border); padding: 2rem; text-align: center;
 
     <div class="proj-card">
       <div class="proj-img-box" id="img-tig">
-        <img src="tig-welding.jpg" alt="Automatic TIG Welding System" />
+        <div class="carousel-container">
+          <div class="carousel-track">
+            <img src="Images/Tig%20Welding/Tg1.jpeg" alt="Automatic TIG Welding System 1" class="carousel-img" />
+            <img src="Images/Tig%20Welding/Tg2.jpeg" alt="Automatic TIG Welding System 2" class="carousel-img" />
+            <img src="Images/Tig%20Welding/Tg3.jpeg" alt="Automatic TIG Welding System 3" class="carousel-img" />
+          </div>
+          <button class="carousel-btn carousel-prev" onclick="prevTigImage()" title="Previous image">❮</button>
+          <button class="carousel-btn carousel-next" onclick="nextTigImage()" title="Next image">❯</button>
+          <div class="carousel-dots" id="tig-dots"></div>
+        </div>
       </div>
       <div class="proj-body">
         <div class="proj-phase">MGIT / JNTUH Sponsored · 2019–2020</div>
@@ -719,13 +764,70 @@ footer { border-top: 1px solid var(--border); padding: 2rem; text-align: center;
 
     <div class="proj-card">
       <div class="proj-img-box" id="img-btech">
-        <img src="btech-projects.jpg" alt="Agriculture Robot / AGV / Robo Boat" />
+        <div class="carousel-container">
+          <div class="carousel-track">
+            <img src="Images/Agriculture%20Robot/Ag1.jpeg" alt="Agriculture Robot / AGV / Robo Boat 1" class="carousel-img" />
+            <img src="Images/Agriculture%20Robot/Ag2.jpeg" alt="Agriculture Robot / AGV / Robo Boat 2" class="carousel-img" />
+            <img src="Images/Agriculture%20Robot/Ag3.jpeg" alt="Agriculture Robot / AGV / Robo Boat 3" class="carousel-img" />
+          </div>
+          <button class="carousel-btn carousel-prev" onclick="prevBtechImage()" title="Previous image">❮</button>
+          <button class="carousel-btn carousel-next" onclick="nextBtechImage()" title="Next image">❯</button>
+          <div class="carousel-dots" id="btech-dots"></div>
+        </div>
       </div>
       <div class="proj-body">
         <div class="proj-phase">B.Tech / MCCM · 2016–2020</div>
         <div class="proj-name">Agriculture Robot / AGV / Robo Boat</div>
         <div class="proj-desc">Multiple academic mechatronics projects including Agriculture Robot, Robo Boat, Advanced Multipurpose Robo Boat, AGV with Fuzzy Logic, IoT Bus Tracking, Automatic Gear Shifting, Pneumatic &amp; Hydraulic systems.</div>
         <div class="proj-tags"><span class="proj-tag">IoT</span><span class="proj-tag">Fuzzy Logic</span><span class="proj-tag">PLC</span><span class="proj-tag">Pneumatics</span><span class="proj-tag">Python</span></div>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-img-box empty" id="img-breath">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+      </div>
+      <div class="proj-body">
+        <div class="proj-phase">Avantel · 2023–Present</div>
+        <div class="proj-name">Breath Simulator</div>
+        <div class="proj-desc">Designed and built an in-house breath simulator replicating real patient breathing waveforms for CPAP/BiPAP device validation — removing dependency on costly external test equipment and enabling repeatable, on-demand therapy algorithm testing.</div>
+        <div class="proj-tags"><span class="proj-tag">Signal Simulation</span><span class="proj-tag">Embedded C</span><span class="proj-tag">In-house Test Rig</span><span class="proj-tag">Cost Savings</span></div>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-img-box empty" id="img-snore">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M2 10v3M6 6v11M10 3v18M14 8v7M18 5v13M22 10v3"/></svg>
+      </div>
+      <div class="proj-body">
+        <div class="proj-phase">Avantel · 2023–Present</div>
+        <div class="proj-name">Snoring Simulator</div>
+        <div class="proj-desc">Designed and built an in-house snoring simulator to replicate acoustic snoring patterns for validating snore-detection algorithms — used to tune sensitivity and reliability of the device's flow-pattern detection firmware.</div>
+        <div class="proj-tags"><span class="proj-tag">Acoustic Simulation</span><span class="proj-tag">Sensor Calibration</span><span class="proj-tag">Embedded C</span><span class="proj-tag">In-house Test Rig</span></div>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-img-box empty" id="img-flowlimit">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M3 12h4l2-6 4 12 2-6h6"/></svg>
+      </div>
+      <div class="proj-body">
+        <div class="proj-phase">Avantel · 2023–Present</div>
+        <div class="proj-name">Flow Limitation Simulator</div>
+        <div class="proj-desc">Designed and built an in-house flow limitation simulator to replicate partial airway obstruction patterns for testing and validating the device's flow-limitation detection and therapy-response algorithms.</div>
+        <div class="proj-tags"><span class="proj-tag">Flow Simulation</span><span class="proj-tag">Pressure Control</span><span class="proj-tag">Embedded C</span><span class="proj-tag">In-house Test Rig</span></div>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-img-box empty" id="img-respdevices">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/><path d="M12 8v4l3 3"/></svg>
+      </div>
+      <div class="proj-body">
+        <div class="proj-phase">Avantel · 2023–Present</div>
+        <div class="proj-name">Respiratory Device Knowledge — Ventilator &amp; Oxygen Concentrator</div>
+        <div class="proj-desc">Working knowledge of Ventilator and Oxygen Concentrator device architecture, therapy modes, and control systems — including pressure/flow regulation, oxygen purity monitoring, and compressor/valve control — gained alongside CPAP/BiPAP/HFNC device development.</div>
+        <div class="proj-tags"><span class="proj-tag">Ventilator</span><span class="proj-tag">Oxygen Concentrator</span><span class="proj-tag">Respiratory Therapy</span><span class="proj-tag">Medical Devices</span></div>
       </div>
     </div>
 
@@ -998,7 +1100,8 @@ function calcExperience() {
   if (contEl)   contEl.textContent   = display + ' Years Experience';
 }
 const PROJECTS = [
-  'CPAP / BiPAP / HFNC Medical Device',
+  'CPAP / Auto CPAP / HFNC Medical Device',
+  'BiPAP-S / T / ST Medical Device',
   'Electro-Polishing Control System',
   'Ampoule Making Machine',
   'RH Monitoring & Alarm (IIoT)',
@@ -1010,7 +1113,10 @@ const PROJECTS = [
   'E-Bike with Li-ion BMS',
   'Automatic TIG Welding System',
   'Agriculture Robot / AGV / Robo Boat',
-  'Automatic Sorter Documentation',
+  'Breath Simulator',
+  'Snoring Simulator',
+  'Flow Limitation Simulator',
+  'Respiratory Device Knowledge — Ventilator & Oxygen Concentrator',
 ];
 function updateProjectCount() {
   const el = document.getElementById('proj-count');
@@ -1082,12 +1188,16 @@ class ImageCarousel {
 }
 function initCarousel() {
   new ImageCarousel('img-cpap', 2000, 0);
-  new ImageCarousel('img-iot', 2000, 170);
-  new ImageCarousel('img-shear', 2000, 340);
-  new ImageCarousel('img-elec', 2000, 510);
-  new ImageCarousel('img-amp', 2000, 680);
-  new ImageCarousel('img-tank', 2000, 850);
-  new ImageCarousel('img-vision', 2000, 1020);
+  new ImageCarousel('img-bipap', 2000, 170);
+  new ImageCarousel('img-iot', 2000, 340);
+  new ImageCarousel('img-shear', 2000, 510);
+  new ImageCarousel('img-elec', 2000, 680);
+  new ImageCarousel('img-amp', 2000, 850);
+  new ImageCarousel('img-tank', 2000, 1020);
+  new ImageCarousel('img-vision', 2000, 1190);
+  new ImageCarousel('img-ebike', 2000, 1360);
+  new ImageCarousel('img-tig', 2000, 1530);
+  new ImageCarousel('img-btech', 2000, 1700);
 }
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', initCarousel);
@@ -1115,6 +1225,30 @@ function prevCpapImage() {
     const prevIndex = (currentIndex - 1 + images.length) % images.length;
     images.forEach((img, i) => img.classList.toggle('active', i === prevIndex));
     const dots = document.getElementById('cpap-dots').querySelectorAll('.carousel-dot');
+    dots.forEach((dot, i) => dot.classList.toggle('active', i === prevIndex));
+  }
+}
+function nextBipapImage() {
+  const carousel = document.querySelector('#img-bipap .carousel-container');
+  if (carousel) {
+    const images = carousel.querySelectorAll('.carousel-img');
+    const active = carousel.querySelector('.carousel-img.active');
+    const currentIndex = Array.from(images).indexOf(active);
+    const nextIndex = (currentIndex + 1) % images.length;
+    images.forEach((img, i) => img.classList.toggle('active', i === nextIndex));
+    const dots = document.getElementById('bipap-dots').querySelectorAll('.carousel-dot');
+    dots.forEach((dot, i) => dot.classList.toggle('active', i === nextIndex));
+  }
+}
+function prevBipapImage() {
+  const carousel = document.querySelector('#img-bipap .carousel-container');
+  if (carousel) {
+    const images = carousel.querySelectorAll('.carousel-img');
+    const active = carousel.querySelector('.carousel-img.active');
+    const currentIndex = Array.from(images).indexOf(active);
+    const prevIndex = (currentIndex - 1 + images.length) % images.length;
+    images.forEach((img, i) => img.classList.toggle('active', i === prevIndex));
+    const dots = document.getElementById('bipap-dots').querySelectorAll('.carousel-dot');
     dots.forEach((dot, i) => dot.classList.toggle('active', i === prevIndex));
   }
 }
@@ -1259,6 +1393,78 @@ function prevVisionImage() {
     const prevIndex = (currentIndex - 1 + images.length) % images.length;
     images.forEach((img, i) => img.classList.toggle('active', i === prevIndex));
     const dots = document.getElementById('vision-dots').querySelectorAll('.carousel-dot');
+    dots.forEach((dot, i) => dot.classList.toggle('active', i === prevIndex));
+  }
+}
+function nextEbikeImage() {
+  const carousel = document.querySelector('#img-ebike .carousel-container');
+  if (carousel) {
+    const images = carousel.querySelectorAll('.carousel-img');
+    const active = carousel.querySelector('.carousel-img.active');
+    const currentIndex = Array.from(images).indexOf(active);
+    const nextIndex = (currentIndex + 1) % images.length;
+    images.forEach((img, i) => img.classList.toggle('active', i === nextIndex));
+    const dots = document.getElementById('ebike-dots').querySelectorAll('.carousel-dot');
+    dots.forEach((dot, i) => dot.classList.toggle('active', i === nextIndex));
+  }
+}
+function prevEbikeImage() {
+  const carousel = document.querySelector('#img-ebike .carousel-container');
+  if (carousel) {
+    const images = carousel.querySelectorAll('.carousel-img');
+    const active = carousel.querySelector('.carousel-img.active');
+    const currentIndex = Array.from(images).indexOf(active);
+    const prevIndex = (currentIndex - 1 + images.length) % images.length;
+    images.forEach((img, i) => img.classList.toggle('active', i === prevIndex));
+    const dots = document.getElementById('ebike-dots').querySelectorAll('.carousel-dot');
+    dots.forEach((dot, i) => dot.classList.toggle('active', i === prevIndex));
+  }
+}
+function nextTigImage() {
+  const carousel = document.querySelector('#img-tig .carousel-container');
+  if (carousel) {
+    const images = carousel.querySelectorAll('.carousel-img');
+    const active = carousel.querySelector('.carousel-img.active');
+    const currentIndex = Array.from(images).indexOf(active);
+    const nextIndex = (currentIndex + 1) % images.length;
+    images.forEach((img, i) => img.classList.toggle('active', i === nextIndex));
+    const dots = document.getElementById('tig-dots').querySelectorAll('.carousel-dot');
+    dots.forEach((dot, i) => dot.classList.toggle('active', i === nextIndex));
+  }
+}
+function prevTigImage() {
+  const carousel = document.querySelector('#img-tig .carousel-container');
+  if (carousel) {
+    const images = carousel.querySelectorAll('.carousel-img');
+    const active = carousel.querySelector('.carousel-img.active');
+    const currentIndex = Array.from(images).indexOf(active);
+    const prevIndex = (currentIndex - 1 + images.length) % images.length;
+    images.forEach((img, i) => img.classList.toggle('active', i === prevIndex));
+    const dots = document.getElementById('tig-dots').querySelectorAll('.carousel-dot');
+    dots.forEach((dot, i) => dot.classList.toggle('active', i === prevIndex));
+  }
+}
+function nextBtechImage() {
+  const carousel = document.querySelector('#img-btech .carousel-container');
+  if (carousel) {
+    const images = carousel.querySelectorAll('.carousel-img');
+    const active = carousel.querySelector('.carousel-img.active');
+    const currentIndex = Array.from(images).indexOf(active);
+    const nextIndex = (currentIndex + 1) % images.length;
+    images.forEach((img, i) => img.classList.toggle('active', i === nextIndex));
+    const dots = document.getElementById('btech-dots').querySelectorAll('.carousel-dot');
+    dots.forEach((dot, i) => dot.classList.toggle('active', i === nextIndex));
+  }
+}
+function prevBtechImage() {
+  const carousel = document.querySelector('#img-btech .carousel-container');
+  if (carousel) {
+    const images = carousel.querySelectorAll('.carousel-img');
+    const active = carousel.querySelector('.carousel-img.active');
+    const currentIndex = Array.from(images).indexOf(active);
+    const prevIndex = (currentIndex - 1 + images.length) % images.length;
+    images.forEach((img, i) => img.classList.toggle('active', i === prevIndex));
+    const dots = document.getElementById('btech-dots').querySelectorAll('.carousel-dot');
     dots.forEach((dot, i) => dot.classList.toggle('active', i === prevIndex));
   }
 }
