@@ -543,7 +543,15 @@ footer { border-top: 1px solid var(--border); padding: 2rem; text-align: center;
 
     <div class="proj-card">
       <div class="proj-img-box" id="img-elec">
-        <img src="Images/Electro_Plating.JPG" alt="Electro-Polishing Control System" />
+        <div class="carousel-container">
+          <div class="carousel-track">
+            <img src="Images/Electrode%20Shearing/Electro_Plating.JPG" alt="Electro-Polishing Control System" class="carousel-img" />
+            <img src="Images/Electrode%20Shearing/Electrode_Shearing.png" alt="Electro-Polishing Control System V2" class="carousel-img" />
+          </div>
+          <button class="carousel-btn carousel-prev" onclick="prevElecImage()" title="Previous image">❮</button>
+          <button class="carousel-btn carousel-next" onclick="nextElecImage()" title="Next image">❯</button>
+          <div class="carousel-dots" id="elec-dots"></div>
+        </div>
       </div>
       <div class="proj-body">
         <div class="proj-phase">HBL Power Systems · 2021–2023</div>
@@ -555,7 +563,15 @@ footer { border-top: 1px solid var(--border); padding: 2rem; text-align: center;
 
     <div class="proj-card">
       <div class="proj-img-box" id="img-amp">
-        <img src="Images/Ampoule_Making.JPG" alt="Ampoule Making Machine" />
+        <div class="carousel-container">
+          <div class="carousel-track">
+            <img src="Images/Ampoule%20Making/Ampoule%201.jpeg" alt="Ampoule Making Machine" class="carousel-img" />
+            <img src="Images/Ampoule%20Making/Ampoule%202.JPG" alt="Ampoule Making Machine V2" class="carousel-img" />
+          </div>
+          <button class="carousel-btn carousel-prev" onclick="prevAmpImage()" title="Previous image">❮</button>
+          <button class="carousel-btn carousel-next" onclick="nextAmpImage()" title="Next image">❯</button>
+          <div class="carousel-dots" id="amp-dots"></div>
+        </div>
       </div>
       <div class="proj-body">
         <div class="proj-phase">HBL Power Systems · 2021–2023</div>
@@ -610,7 +626,15 @@ footer { border-top: 1px solid var(--border); padding: 2rem; text-align: center;
 
     <div class="proj-card">
       <div class="proj-img-box" id="img-tank">
-        <img src="tank-level-control.jpg" alt="Tank Level Control System" />
+        <div class="carousel-container">
+          <div class="carousel-track">
+            <img src="Images/Tank%20Level/Tank%20Level%201.jpeg" alt="Tank Level Control System" class="carousel-img" />
+            <img src="Images/Tank%20Level/Tank%20Level%202.jpeg" alt="Tank Level Control System V2" class="carousel-img" />
+          </div>
+          <button class="carousel-btn carousel-prev" onclick="prevTankImage()" title="Previous image">❮</button>
+          <button class="carousel-btn carousel-next" onclick="nextTankImage()" title="Next image">❯</button>
+          <div class="carousel-dots" id="tank-dots"></div>
+        </div>
       </div>
       <div class="proj-body">
         <div class="proj-phase">HBL Power Systems · 2021–2023</div>
@@ -646,7 +670,20 @@ footer { border-top: 1px solid var(--border); padding: 2rem; text-align: center;
 
     <div class="proj-card">
       <div class="proj-img-box" id="img-vision">
-        <img src="ampoule-vision.jpg" alt="Ampoule Filling — Computer Vision" />
+        <div class="carousel-container">
+          <div class="carousel-track">
+            <img src="Images/AMF%20CV/afm%201.jpeg" alt="Ampoule Filling Computer Vision 1" class="carousel-img" />
+            <img src="Images/AMF%20CV/afm%202.jpeg" alt="Ampoule Filling Computer Vision 2" class="carousel-img" />
+            <img src="Images/AMF%20CV/afm%203.jpeg" alt="Ampoule Filling Computer Vision 3" class="carousel-img" />
+            <img src="Images/AMF%20CV/afm%204.jpeg" alt="Ampoule Filling Computer Vision 4" class="carousel-img" />
+            <img src="Images/AMF%20CV/afm%205.jpeg" alt="Ampoule Filling Computer Vision 5" class="carousel-img" />
+            <img src="Images/AMF%20CV/afm%206.jpeg" alt="Ampoule Filling Computer Vision 6" class="carousel-img" />
+            <img src="Images/AMF%20CV/afm%207.jpeg" alt="Ampoule Filling Computer Vision 7" class="carousel-img" />
+          </div>
+          <button class="carousel-btn carousel-prev" onclick="prevVisionImage()" title="Previous image">❮</button>
+          <button class="carousel-btn carousel-next" onclick="nextVisionImage()" title="Next image">❯</button>
+          <div class="carousel-dots" id="vision-dots"></div>
+        </div>
       </div>
       <div class="proj-body">
         <div class="proj-phase">HBL Power Systems · 2021–2023</div>
@@ -989,7 +1026,7 @@ function toggleExtra(id, btn) {
   btn.firstChild.textContent = el.classList.contains('open') ? 'Show less ' : 'Show more details ';
 }
 class ImageCarousel {
-  constructor(containerId, autoPlayInterval = 5000) {
+  constructor(containerId, autoPlayInterval = 1000, startDelay = 0) {
     this.container = document.getElementById(containerId);
     if (!this.container) return;
     this.images = this.container.querySelectorAll('.carousel-img');
@@ -1000,7 +1037,7 @@ class ImageCarousel {
     if (this.images.length > 0) {
       this.initDots();
       this.showImage(0);
-      this.startAutoPlay();
+      setTimeout(() => this.startAutoPlay(), startDelay);
       this.container.addEventListener('mouseenter', () => this.pauseAutoPlay());
       this.container.addEventListener('mouseleave', () => this.startAutoPlay());
     }
@@ -1044,9 +1081,13 @@ class ImageCarousel {
   }
 }
 function initCarousel() {
-  new ImageCarousel('img-cpap', 2000);
-  new ImageCarousel('img-iot', 2000);
-  new ImageCarousel('img-shear', 2000);
+  new ImageCarousel('img-cpap', 2000, 0);
+  new ImageCarousel('img-iot', 2000, 170);
+  new ImageCarousel('img-shear', 2000, 340);
+  new ImageCarousel('img-elec', 2000, 510);
+  new ImageCarousel('img-amp', 2000, 680);
+  new ImageCarousel('img-tank', 2000, 850);
+  new ImageCarousel('img-vision', 2000, 1020);
 }
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', initCarousel);
@@ -1122,6 +1163,102 @@ function prevShearImage() {
     const prevIndex = (currentIndex - 1 + images.length) % images.length;
     images.forEach((img, i) => img.classList.toggle('active', i === prevIndex));
     const dots = document.getElementById('shear-dots').querySelectorAll('.carousel-dot');
+    dots.forEach((dot, i) => dot.classList.toggle('active', i === prevIndex));
+  }
+}
+function nextElecImage() {
+  const carousel = document.querySelector('#img-elec .carousel-container');
+  if (carousel) {
+    const images = carousel.querySelectorAll('.carousel-img');
+    const active = carousel.querySelector('.carousel-img.active');
+    const currentIndex = Array.from(images).indexOf(active);
+    const nextIndex = (currentIndex + 1) % images.length;
+    images.forEach((img, i) => img.classList.toggle('active', i === nextIndex));
+    const dots = document.getElementById('elec-dots').querySelectorAll('.carousel-dot');
+    dots.forEach((dot, i) => dot.classList.toggle('active', i === nextIndex));
+  }
+}
+function prevElecImage() {
+  const carousel = document.querySelector('#img-elec .carousel-container');
+  if (carousel) {
+    const images = carousel.querySelectorAll('.carousel-img');
+    const active = carousel.querySelector('.carousel-img.active');
+    const currentIndex = Array.from(images).indexOf(active);
+    const prevIndex = (currentIndex - 1 + images.length) % images.length;
+    images.forEach((img, i) => img.classList.toggle('active', i === prevIndex));
+    const dots = document.getElementById('elec-dots').querySelectorAll('.carousel-dot');
+    dots.forEach((dot, i) => dot.classList.toggle('active', i === prevIndex));
+  }
+}
+function nextAmpImage() {
+  const carousel = document.querySelector('#img-amp .carousel-container');
+  if (carousel) {
+    const images = carousel.querySelectorAll('.carousel-img');
+    const active = carousel.querySelector('.carousel-img.active');
+    const currentIndex = Array.from(images).indexOf(active);
+    const nextIndex = (currentIndex + 1) % images.length;
+    images.forEach((img, i) => img.classList.toggle('active', i === nextIndex));
+    const dots = document.getElementById('amp-dots').querySelectorAll('.carousel-dot');
+    dots.forEach((dot, i) => dot.classList.toggle('active', i === nextIndex));
+  }
+}
+function prevAmpImage() {
+  const carousel = document.querySelector('#img-amp .carousel-container');
+  if (carousel) {
+    const images = carousel.querySelectorAll('.carousel-img');
+    const active = carousel.querySelector('.carousel-img.active');
+    const currentIndex = Array.from(images).indexOf(active);
+    const prevIndex = (currentIndex - 1 + images.length) % images.length;
+    images.forEach((img, i) => img.classList.toggle('active', i === prevIndex));
+    const dots = document.getElementById('amp-dots').querySelectorAll('.carousel-dot');
+    dots.forEach((dot, i) => dot.classList.toggle('active', i === prevIndex));
+  }
+}
+function nextTankImage() {
+  const carousel = document.querySelector('#img-tank .carousel-container');
+  if (carousel) {
+    const images = carousel.querySelectorAll('.carousel-img');
+    const active = carousel.querySelector('.carousel-img.active');
+    const currentIndex = Array.from(images).indexOf(active);
+    const nextIndex = (currentIndex + 1) % images.length;
+    images.forEach((img, i) => img.classList.toggle('active', i === nextIndex));
+    const dots = document.getElementById('tank-dots').querySelectorAll('.carousel-dot');
+    dots.forEach((dot, i) => dot.classList.toggle('active', i === nextIndex));
+  }
+}
+function prevTankImage() {
+  const carousel = document.querySelector('#img-tank .carousel-container');
+  if (carousel) {
+    const images = carousel.querySelectorAll('.carousel-img');
+    const active = carousel.querySelector('.carousel-img.active');
+    const currentIndex = Array.from(images).indexOf(active);
+    const prevIndex = (currentIndex - 1 + images.length) % images.length;
+    images.forEach((img, i) => img.classList.toggle('active', i === prevIndex));
+    const dots = document.getElementById('tank-dots').querySelectorAll('.carousel-dot');
+    dots.forEach((dot, i) => dot.classList.toggle('active', i === prevIndex));
+  }
+}
+function nextVisionImage() {
+  const carousel = document.querySelector('#img-vision .carousel-container');
+  if (carousel) {
+    const images = carousel.querySelectorAll('.carousel-img');
+    const active = carousel.querySelector('.carousel-img.active');
+    const currentIndex = Array.from(images).indexOf(active);
+    const nextIndex = (currentIndex + 1) % images.length;
+    images.forEach((img, i) => img.classList.toggle('active', i === nextIndex));
+    const dots = document.getElementById('vision-dots').querySelectorAll('.carousel-dot');
+    dots.forEach((dot, i) => dot.classList.toggle('active', i === nextIndex));
+  }
+}
+function prevVisionImage() {
+  const carousel = document.querySelector('#img-vision .carousel-container');
+  if (carousel) {
+    const images = carousel.querySelectorAll('.carousel-img');
+    const active = carousel.querySelector('.carousel-img.active');
+    const currentIndex = Array.from(images).indexOf(active);
+    const prevIndex = (currentIndex - 1 + images.length) % images.length;
+    images.forEach((img, i) => img.classList.toggle('active', i === prevIndex));
+    const dots = document.getElementById('vision-dots').querySelectorAll('.carousel-dot');
     dots.forEach((dot, i) => dot.classList.toggle('active', i === prevIndex));
   }
 }
